@@ -5,7 +5,7 @@
 | Role               | Name      |
 |--------------------|-----------|
 | Frontend Developer | John Doe  |
-| Backend Developer  | Jane Doe  |
+| Backend Developer  | A. Yavuz ORUÇ  |
 
 ## Project
 
