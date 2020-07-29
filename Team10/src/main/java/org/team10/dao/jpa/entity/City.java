@@ -39,11 +39,11 @@ public class City {
 		this.cityName = cityName;
 	}
 
-	public String getBookDescription() {
+	public String getCityDescription() {
 		return cityDescription;
 	}
 
-	public void setBookDescription(String cityDescription) {
+	public void setCityDescription(String cityDescription) {
 		this.cityDescription = cityDescription;
 	}
 
