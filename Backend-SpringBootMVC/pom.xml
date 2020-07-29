@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.team10.project</groupId>
+  <groupId>org.culturalplaces.project</groupId>
   <artifactId>Team10</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>Team10</name>
+  <name>CulturalPlaces</name>
   
   
   
@@ -53,7 +53,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>Team10</finalName>
+		<finalName>CulturalPlaces</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

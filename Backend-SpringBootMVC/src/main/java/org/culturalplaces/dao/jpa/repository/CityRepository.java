@@ -1,12 +1,12 @@
-package org.team10.dao.jpa.repository;
+package org.culturalplaces.dao.jpa.repository;
 
 import java.util.List;
 
+import org.culturelplaces.dao.jpa.entity.City;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.team10.dao.jpa.entity.City;
 
 @Repository
 public interface CityRepository extends CrudRepository<City, Long>{
