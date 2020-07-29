@@ -2,7 +2,7 @@ package org.culturalplaces.dao.jpa.repository;
 
 import java.util.List;
 
-import org.culturelplaces.dao.jpa.entity.City;
+import org.culturalplaces.dao.jpa.entity.City;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

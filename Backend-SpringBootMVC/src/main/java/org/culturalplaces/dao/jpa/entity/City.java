@@ -1,4 +1,4 @@
-package org.culturelplaces.dao.jpa.entity;
+package org.culturalplaces.dao.jpa.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
