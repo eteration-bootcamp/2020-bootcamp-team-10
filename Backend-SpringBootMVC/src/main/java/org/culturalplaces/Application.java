@@ -6,6 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @ComponentScan(basePackages = {
+		"org.culturalplaces.service",
+		"org.culturalplaces.service.model",
+		"org.culturalplaces.controller",
 		"org.culturalplaces.dao.jpa.entity",
 		"org.culturalplaces.dao.jpa.repository"})
 
