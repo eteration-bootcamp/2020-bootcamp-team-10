@@ -10,70 +10,91 @@ import { Form, FormGroup, Label, Input, FormText, Button } from 'reactstrap';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
-function SignUpForm() {
-  return (
-    <div>
-      <Form>
-        <FormGroup>
-          <Label for="sign-up-text">Please fill up the form to sign up!</Label>
-        </FormGroup>
-        <FormGroup>
-          <Label for="sign-up-email">Email</Label>
-          <Input
-            type="email"
-            name="email"
-            id="sign-up-email"
-            placeholder="Please enter your email"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="sign-up-password">Password</Label>
-          <Input
-            type="password"
-            name="password"
-            id="sign-up-password"
-            placeholder="Please enter a password"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="sign-up-number">Number</Label>
-          <Input
-            type="number"
-            name="number"
-            id="sign-up-number"
-            placeholder="Please enter your phone number"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="sign-up-bday">Birthday</Label>
-          <Input
-            type="date"
-            name="bday"
-            id="sign-up-bday"
-            placeholder="Please enter your B"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleFile">Profile Picture</Label>
-          <Input type="file" name="file" id="sign-up-picture" />
-          <FormText color="muted">
-            This will be your profile picture.
-          </FormText>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="checkbox" /> Subscribe for our latest smt smt
-          </Label>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="checkbox" /> I gave you my correct data
-          </Label>
-        </FormGroup>
-      </Form>
-      <Button>Sign Up</Button>
-    </div>
-  );
+class SignUpForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password:'',
+      number:'',
+      bday:'',
+      sub: false,
+      check: false
+  };
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+
+  }
+
+  handleSubmit(event) {
+    console.log('A email was submitted: ' + this.state.email);
+    console.log('A password was submitted: ' + this.state.password);
+    console.log('A number was submitted: ' + this.state.number);
+    console.log('A birthday was submitted: ' + this.state.bday);
+    event.preventDefault();
+  }
+  render() {
+      return (
+        <Form onSubmit={this.handleSubmit}>
+          <FormGroup>
+            <Label for="text">Please fill up the form to sign up!</Label>
+          </FormGroup>
+          <FormGroup>
+            <Label for="email">Email</Label>
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Please enter your email"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="password">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Please enter a password"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="number">Number</Label>
+            <Input
+              type="number"
+              name="number"
+              id="number"
+              placeholder="Please enter your phone number"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="bday">Birthday</Label>
+            <Input
+              type="date"
+              name="bday"
+              id="bday"
+              placeholder="Please enter your Birthday"
+              onChange={this.handleChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="file">Profile Picture</Label>
+            <Input type="file" name="file" id="picture" />
+            <FormText color="muted">
+              This will be your profile picture.
+            </FormText>
+          </FormGroup>
+          <FormGroup>
+          <Input type="submit" value="Sign Up"/>
+          </FormGroup>
+        </Form>
+    );
+  }
 }
 
 SignUpForm.propTypes = {};
