@@ -51,18 +51,17 @@
       9.1- You can search for , "how can ı create mysql docker image"
       9.2- SequeLPro is so effective app for mysql
       9.3- You can connect your local host and create some tables.(CityId - CityName - CityDescription - CityPhoto- CulturalPlace -CityCoordinate)
+      9.4- You can create db with code like below.
+            CREATE TABLE `city` (
+            `city_id` int(11) NOT NULL,
+            `city_name` varchar(30) NOT NULL,
+            `city_description` varchar(30) NOT NULL,
+            `city_photo` varchar(30) NOT NULL,
+            `cultural_place` varchar(30) NOT NULL,
+            `city_coordinates` varchar(30) NOT NULL,
+            PRIMARY KEY (`city_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-```sh
-      CREATE TABLE `city` (
-     `city_id` int(11) NOT NULL,
-     `city_name` varchar(30) NOT NULL,
-     `city_description` varchar(30) NOT NULL,
-     `city_photo` varchar(30) NOT NULL,
-     `cultural_place` varchar(30) NOT NULL,
-     `city_coordinates` varchar(30) NOT NULL,
-     PRIMARY KEY (`city_id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-```
       
       
       **If you want to ask question, you can write on discord.
