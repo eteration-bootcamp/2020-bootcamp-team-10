@@ -1,67 +1,70 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
-
+import {
+  Button,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Container,
+} from 'reactstrap';
+import fire from '../../config/fire';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
+  signIn() {
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  handleSubmit(event) {
-    console.log(`A email was submitted: ${this.state.email}`);
-    console.log(`A password was submitted: ${this.state.password}`);
-
-    event.preventDefault();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(u => {
+        console.log('success');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
     return (
-      <Form inline onSubmit={this.handleSubmit}>
-        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="exampleEmail" className="mr-sm-2">
-            Email
-          </Label>
-          <Input
-            type="email"
-            name="email"
-            id="email"
-            onChange={this.handleChange}
-            placeholder="something@idk.cool"
-          />
-        </FormGroup>
-        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-          <Label for="examplePassword" className="mr-sm-2">
-            Password
-          </Label>
-          <Input
-            type="password"
-            name="password"
-            id="password"
-            onChange={this.handleChange}
-            placeholder="don't tell!"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Input type="submit" value="Login" />
-        </FormGroup>
-      </Form>
+      <Container>
+        <Form>
+          <FormGroup row>
+            <Label for="email" sm={12}>
+              E-mail
+            </Label>
+            <Col sm={12} md={{ size: 4, offset: 4 }}>
+              <Input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="E-mail address"
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="password" sm={12}>
+              Password
+            </Label>
+            <Col sm={12} md={{ size: 4, offset: 4 }}>
+              <Input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </Col>
+          </FormGroup>
+          <Button color="primary" onClick={this.signIn}>
+            LOGIN
+          </Button>
+        </Form>
+      </Container>
     );
   }
 }
-
-LoginForm.propTypes = {};
 
 export default LoginForm;
