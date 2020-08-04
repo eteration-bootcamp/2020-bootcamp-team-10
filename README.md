@@ -52,6 +52,7 @@
       9.2- SequeLPro is so effective app for mysql
       9.3- You can connect your local host and create some tables.(CityId - CityName - CityDescription - CityPhoto- CulturalPlace -CityCoordinate)
       9.4- You can create db with code like below.
+           
             CREATE TABLE `city` (
             `city_id` int(11) NOT NULL,
             `city_name` varchar(30) NOT NULL,
