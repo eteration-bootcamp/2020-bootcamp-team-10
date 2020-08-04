@@ -18,7 +18,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from '../LoginPage';
 import SignUpPage from '../SignUpPage';
 
-
 export default function App() {
   return (
     <div>
@@ -28,7 +27,7 @@ export default function App() {
         <Route exact path="/sign-up" component={SignUpPage} />
         <Route component={NotFoundPage} />
       </Switch>
-    
+
       <GlobalStyle />
     </div>
   );

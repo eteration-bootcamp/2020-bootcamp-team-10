@@ -29,7 +29,7 @@ export function LoginPage() {
         <title>LoginPage</title>
         <meta name="description" content="Description of LoginPage" />
       </Helmet>
-      <LoginForm/>
+      <LoginForm />
     </div>
   );
 }

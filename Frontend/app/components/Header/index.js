@@ -9,12 +9,10 @@ import NavBar from './Navbar';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
-import { FormattedMessage } from 'react-intl';
-
 function Header() {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
     </div>
   );
 }
