@@ -1,9 +1,3 @@
-/**
- *
- * LoginForm
- *
- */
-
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
