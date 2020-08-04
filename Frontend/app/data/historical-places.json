@@ -1,0 +1,31 @@
+{   "features": [
+    {
+      "properties": {
+        "PLACE_ID": 1,
+        "NAME": "Galata Kulesi",
+        "ADDRESS": "Bereketzade, Galata Kulesi, 34421 Beyoğlu/İstanbul",
+        "CITY": "İstanbul",
+        "coordinates": [28.974243,41.025726]
+      }
+    },
+    {
+      "properties": {
+        "PLACE_ID": 2,
+        "NAME": "Sultan Ahmet Camii",
+        "ADDRESS": "Sultan Ahmet, Atmeydanı Cd. No:7, 34122 Fatih/İstanbul",
+        "CITY": "İstanbul",
+        "coordinates": [28.978334, 41.005150]
+      }
+    },
+    {
+      "properties": {
+        "PLACE_ID": 3,
+        "NAME": "Kapalı Çarşı",
+        "ADDRESS": "Beyazıt, Kalpakçılar Cd. No:22, 34126 Fatih/İstanbul",
+        "CITY": "İstanbul",
+        "coordinates": [28.968262,41.010593]
+      }
+    }
+    
+  ]
+}
