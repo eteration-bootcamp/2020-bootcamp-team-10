@@ -23,5 +23,8 @@ public interface CityRepository extends CrudRepository<City, Long>{
 		
 		@Query(value = "SELECT e FROM City e WHERE e.cityName=:cityName")
 		public List<City> findByCityName(@Param("cityName") String cityName);
+		
+		@Query(value = "SELECT e FROM City e WHERE e.culturalPlace=:culturalPlace")
+		public List<City> findByCulturalPlaceName(@Param("culturalPlace") String culturalPlace);
 
 }
