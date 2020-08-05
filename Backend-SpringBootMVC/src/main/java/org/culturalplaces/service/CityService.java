@@ -37,6 +37,8 @@ public class CityService {
 		city.setCityName(cityContext.getCityName());
 		city.setCityDescription(cityContext.getCityDescription());
 		city.setCityPhoto(cityContext.getCityPhoto());
+		city.setCulturalPlace(cityContext.getCulturalPlace());
+		city.setCityCoordinates(cityContext.getCityCoordinates());
 		
 
 		city = cityRepository.save(city);
@@ -50,6 +52,15 @@ public class CityService {
 		List<City> result = null;
 		
 			result = cityRepository.findByCityName(cityName);
+		
+		return result;
+	}
+	
+	public List<City> searchByCulturalPlaceName (String culturalPlace) {
+
+		List<City> result = null;
+		
+			result = cityRepository.findByCulturalPlaceName(culturalPlace);
 		
 		return result;
 	}
