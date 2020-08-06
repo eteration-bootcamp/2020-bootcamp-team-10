@@ -12,24 +12,42 @@ public class CityContext implements Serializable{
 	private String cityName;
 	private String cityDescription;
 	private String cityPhoto;
+	private String culturalPlace;
+	private String cityCoordinates;
+	
 	public String getCityName() {
 		return cityName;
-	}
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
 	}
 	public String getCityDescription() {
 		return cityDescription;
 	}
-	public void setCityDescription(String cityDescription) {
-		this.cityDescription = cityDescription;
-	}
 	public String getCityPhoto() {
 		return cityPhoto;
+	}
+	public String getCulturalPlace() {
+		return culturalPlace;
+	}
+	public String getCityCoordinates() {
+		return cityCoordinates;
+	}
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+	public void setCityDescription(String cityDescription) {
+		this.cityDescription = cityDescription;
 	}
 	public void setCityPhoto(String cityPhoto) {
 		this.cityPhoto = cityPhoto;
 	}
-
+	public void setCulturalPlace(String culturalPlace) {
+		this.culturalPlace = culturalPlace;
+	}
+	public void setCityCoordinates(String cityCoordinates) {
+		this.cityCoordinates = cityCoordinates;
+	}
 	
+	
+
+
 }
+

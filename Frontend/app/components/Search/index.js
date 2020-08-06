@@ -24,7 +24,6 @@ export default class Search extends React.Component {
   state = {
     query: '',
     data: [],
-    searchString: [],
     responseData: [],
   };
 
@@ -41,7 +40,6 @@ export default class Search extends React.Component {
 
   getData = () => {
     const placeData = histPlaces.features;
-    console.log(placeData);
     const placeDataList = placeData.map(place => ({
       place_id: place.properties.PLACE_ID,
       name: place.properties.NAME.toLowerCase(),
@@ -49,7 +47,6 @@ export default class Search extends React.Component {
     }));
     this.setState({
       data: placeDataList,
-      searchString: '',
     });
   };
 
@@ -58,11 +55,9 @@ export default class Search extends React.Component {
     let responseData = this.state.data;
 
     if (searchString.length > 0) {
-      console.log(responseData, 'response data');
       responseData = responseData.filter(place =>
         place.name.includes(searchString.toLowerCase()),
       );
-      console.log('filetered response', responseData);
     } else {
       responseData = [];
     }
