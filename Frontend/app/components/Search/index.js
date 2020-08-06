@@ -3,6 +3,9 @@
  * Search
  *
  */
+import Background from '../../images/icon-512x512.png';
+import './index.css'
+
 import {
   Col,
   Row,
@@ -74,11 +77,11 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <Form>
+      <Form className="padding">
         <Row form>
           <Col md={3} />
-          <Col md={6}>
-            <FormGroup>
+          <Col md={6} >
+            <FormGroup style={{backgroundImage: "url(" + Background + ")", }}>
               <Label for="search">Where do you want to go?</Label>
               <Input
                 type="text"
