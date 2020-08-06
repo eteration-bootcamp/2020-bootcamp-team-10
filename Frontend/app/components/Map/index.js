@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import * as histPlaces from '../../data/historical-places.json';
 import './Map.css';
@@ -16,7 +17,10 @@ export default class OSMap extends React.Component {
 
   render() {
     return (
-      <Map center={[41.0082, 28.9784]} zoom={12}>
+      <Container>
+        <Row>
+        <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <Map center={[41.0082, 28.9784]} zoom={12}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -52,6 +56,11 @@ export default class OSMap extends React.Component {
           </Popup>
         )}
       </Map>
+        </Col>
+      </Row>
+      
+      </Container>
+      
     );
   }
 }
