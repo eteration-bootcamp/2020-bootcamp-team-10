@@ -3,9 +3,6 @@
  * Search
  *
  */
-import Background from '../../images/icon-512x512.png';
-import './index.css'
-
 import {
   Col,
   Row,
@@ -15,12 +12,9 @@ import {
   Input,
   ButtonToggle,
 } from 'reactstrap';
-
 import React from 'react';
-// import * as histPlaces from '../../data/historical-places.json';
 import axios from 'axios';
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -28,17 +22,13 @@ export default class Search extends React.Component {
       query: '',
       data: [],
       responseData: [],
-      historicalPlacesDataFromDb: []
     };
   }
 
+  componentDidMount() {
+    this.getData();
+  }
 
-  state = {
-    
-  };
-componentDidMount(){
-
-}
   handleInputChange = event => {
     this.setState(
       {
@@ -51,55 +41,47 @@ componentDidMount(){
   };
 
   getData = () => {
-    axios.get("http://localhost:7007/application/city/list")
-     .then(res => {
-      const historicalPlaces = res.data;
-      console.log(historicalPlaces, 'hist places');
-      this.setState({ historicalPlacesDataFromDb: historicalPlaces });
-      console.log(this.state.historicalPlacesDataFromDb, 'placeData1');
-    }).then(res =>{ 
-      const placeDataList = this.state.historicalPlacesDataFromDb.map(place => ({
-      place_id: place.cityId,
-      name: place.culturalPlace.toLowerCase(),
-      city: place.cityName,
-    }));
-    console.log(placeDataList, 'placeDatalist')
-    this.setState({
-      data: placeDataList,
-    });
-  })
-     
+    const url = 'http://localhost:7007/application/city/list';
+    axios
+      .get(url)
+      .then(res => {
+        const culturalPlacesResponse = res.data;
+        this.setState({ culturalPlaces: culturalPlacesResponse });
+      })
+      .then(() => {
+        this.setState(prevstate => {
+          const placeDataList = prevstate.culturalPlaces.map(place => ({
+            place_id: place.cityId,
+            name: place.culturalPlace.toLowerCase(),
+            city: place.cityName,
+          }));
+          return { data: placeDataList };
+        });
+      });
   };
 
   filterArray = () => {
-    const searchString = this.state.query;
-    let responseData = this.state.data;
-    console.log(responseData, 'state responsedata')
-
-    if (searchString.length > 0) {
-      responseData = responseData.filter(place =>
-        place.name.includes(searchString.toLowerCase()),
-      );
-      console.log(responseData, 'response dadta')
-    } else {
-      responseData = [];
-    }
-    this.setState({
-      responseData,
+    this.setState(prevState => {
+      const searchString = prevState.query;
+      let responseData = prevState.data;
+      if (searchString.length > 1) {
+        responseData = responseData.filter(place =>
+          place.name.includes(searchString.toLowerCase()),
+        );
+      } else {
+        responseData = [];
+      }
+      return { responseData };
     });
   };
 
-  componentWillMount() {
-    this.getData();
-  }
-
   render() {
     return (
-      <Form className="padding">
+      <Form>
         <Row form>
           <Col md={3} />
-          <Col md={6} >
-            <FormGroup style={{backgroundImage: "url(" + Background + ")", }}>
+          <Col md={6}>
+            <FormGroup>
               <Label for="search">Where do you want to go?</Label>
               <Input
                 type="text"
@@ -118,11 +100,9 @@ componentDidMount(){
           </Col>
           <Col>
             {this.state.responseData.map((place, i) => (
-              <div key={i}>
-                <p>
-                  {place.name}, {place.city}
-                </p>
-              </div>
+              <p>
+                {place.name}, {place.city}
+              </p>
             ))}
           </Col>
           <Col md={1} />

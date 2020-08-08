@@ -73,8 +73,8 @@ public class City {
 		this.culturalPlace = culturalPlaces;
 	}
 
-	public void setCityCoordinates(String cityCoordinates) {
-		this.cityCoordinates = cityCoordinates;
+	public void setCityCoordinates(String string) {
+		this.cityCoordinates = string;
 	}
 
 	@Override
