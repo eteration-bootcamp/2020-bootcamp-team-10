@@ -8,6 +8,7 @@ import {
   Input,
   Container,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import fire from '../../config/fire';
 
 class SignUpForm extends Component {
@@ -55,6 +56,9 @@ class SignUpForm extends Component {
                 placeholder="Password"
               />
             </Col>
+          </FormGroup>
+          <FormGroup>
+            <Link to="/login">Already have an account?</Link>
           </FormGroup>
           <Button color="primary" onClick={this.signUp}>
             SIGN UP

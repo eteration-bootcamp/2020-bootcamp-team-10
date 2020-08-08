@@ -17,6 +17,8 @@ import GlobalStyle from '../../global-styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from '../LoginPage';
 import SignUpPage from '../SignUpPage';
+import CulturalPlacePage from '../CulturalPlacePage';
+import CulturalPlacesListPage from '../CulturalPlacesListPage';
 
 export default function App() {
   return (
@@ -25,6 +27,12 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/sign-up" component={SignUpPage} />
+        <Route exact path="/cultural-places" component={CulturalPlacePage} />
+        <Route
+          exact
+          path="/cultural-place-list"
+          component={CulturalPlacesListPage}
+        />
         <Route component={NotFoundPage} />
       </Switch>
 

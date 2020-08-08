@@ -8,6 +8,7 @@ import {
   Input,
   Container,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import fire from '../../config/fire';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
@@ -57,6 +58,9 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
             </Col>
+          </FormGroup>
+          <FormGroup>
+            <Link to="/sign-up">Do not have an account?</Link>
           </FormGroup>
           <Button color="primary" onClick={this.signIn}>
             LOGIN

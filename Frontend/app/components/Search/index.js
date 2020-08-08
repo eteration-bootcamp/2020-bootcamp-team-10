@@ -3,6 +3,8 @@
  * Search
  *
  */
+import './index.css';
+
 import {
   Col,
   Row,
@@ -12,9 +14,15 @@ import {
   Input,
   ButtonToggle,
 } from 'reactstrap';
-import React from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
+import React from 'react';
+// import * as histPlaces from '../../data/historical-places.json';
+import axios from 'axios';
+import Background from '../../images/icon-512x512.png';
+import CulturalPlaceList from '../CulturalPlaceList';
+// import PropTypes from 'prop-types';
+// import styled from 'styled-components';
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +30,7 @@ export default class Search extends React.Component {
       query: '',
       data: [],
       responseData: [],
+      historicalPlacesDataFromDb: [],
     };
   }
 
@@ -75,13 +84,27 @@ export default class Search extends React.Component {
     });
   };
 
+  onClickSearch(culturalData) {
+    // const culturalData = data;
+    console.log(culturalData, 'Cultural Data Debug');
+    if (culturalData !== undefined) {
+      return <CulturalPlaceList fiteredPlaceList={culturalData} />;
+    }
+    else if (culturalData !== []){
+    <CulturalPlaceList noFoundMessage= 'No place was found.' />;
+  }
+  else {<CulturalPlaceList undefineMessage= 'Undefined dataflow.' />;}
+  }
+
+ 
+
   render() {
     return (
-      <Form>
+      <Form className="padding">
         <Row form>
           <Col md={3} />
           <Col md={6}>
-            <FormGroup>
+            <FormGroup style={{ backgroundImage: `url(${Background})` }}>
               <Label for="search">Where do you want to go?</Label>
               <Input
                 type="text"
@@ -96,13 +119,19 @@ export default class Search extends React.Component {
         <Row form>
           <Col md={8} />
           <Col md={2}>
-            <ButtonToggle color="primary">Search</ButtonToggle>{' '}
+            <ButtonToggle
+              onClick={() => this.onClickSearch(this.state.culturalPlaces)}
+            >
+              <Link to="/cultural-place-list" >Search</Link>
+            </ButtonToggle>
           </Col>
           <Col>
             {this.state.responseData.map((place, i) => (
-              <p>
-                {place.name}, {place.city}
-              </p>
+              <div key={i}>
+                <p>
+                  {place.name}, {place.city}
+                </p>
+              </div>
             ))}
           </Col>
           <Col md={1} />
