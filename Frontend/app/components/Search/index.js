@@ -31,11 +31,12 @@ export default class Search extends React.Component {
       data: [],
       responseData: [],
       historicalPlacesDataFromDb: [],
+      isCulturalPlaceList: false
     };
   }
 
   componentDidMount() {
-    this.getData();
+    // this.getData();
   }
 
   handleInputChange = event => {
@@ -49,56 +50,38 @@ export default class Search extends React.Component {
     );
   };
 
-  getData = () => {
-    const url = 'http://localhost:7007/application/city/list';
-    axios
-      .get(url)
-      .then(res => {
-        const culturalPlacesResponse = res.data;
-        this.setState({ culturalPlaces: culturalPlacesResponse });
-      })
-      .then(() => {
-        this.setState(prevstate => {
-          const placeDataList = prevstate.culturalPlaces.map(place => ({
-            place_id: place.cityId,
-            name: place.culturalPlace.toLowerCase(),
-            city: place.cityName,
-          }));
-          return { data: placeDataList };
-        });
-      });
-  };
-
   filterArray = () => {
     this.setState(prevState => {
       const searchString = prevState.query;
-      let responseData = prevState.data;
+      const serviceResponse = this.props.data.culturalPlaces;
+      let responseData;
+      console.log('responseData -- ',serviceResponse);
       if (searchString.length > 1) {
-        responseData = responseData.filter(place =>
-          place.name.includes(searchString.toLowerCase()),
+        responseData = serviceResponse.filter(place =>
+          place.culturalPlace
+            .toLowerCase()
+            .includes(searchString.toLowerCase()),
         );
+        console.log('resData Filteterd: ', responseData);
       } else {
         responseData = [];
       }
+      this.props.setFilterData(responseData);
       return { responseData };
     });
   };
 
   onClickSearch(culturalData) {
-    // const culturalData = data;
     console.log(culturalData, 'Cultural Data Debug');
     if (culturalData !== undefined) {
-      return <CulturalPlaceList fiteredPlaceList={culturalData} />;
+      this.setState({
+        isCulturalPlaceList: true,
+      });
     }
-    else if (culturalData !== []){
-    <CulturalPlaceList noFoundMessage= 'No place was found.' />;
   }
-  else {<CulturalPlaceList undefineMessage= 'Undefined dataflow.' />;}
-  }
-
- 
 
   render() {
+    console.log(this.props);
     return (
       <Form className="padding">
         <Row form>
@@ -120,16 +103,16 @@ export default class Search extends React.Component {
           <Col md={8} />
           <Col md={2}>
             <ButtonToggle
-              onClick={() => this.onClickSearch(this.state.culturalPlaces)}
+              onClick={() => this.onClickSearch(this.state.responseData)}
             >
-              <Link to="/cultural-place-list" >Search</Link>
+              <Link to="/cultural-place-list">Search</Link>
             </ButtonToggle>
           </Col>
           <Col>
             {this.state.responseData.map((place, i) => (
               <div key={i}>
                 <p>
-                  {place.name}, {place.city}
+                  {place.culturalPlace}, {place.cityName} {place.cityId}
                 </p>
               </div>
             ))}
