@@ -12,6 +12,7 @@ import SmallInfoCard from '../SmallInfoCard';
 // eslint-disable-next-line react/prefer-stateless-function
 class CulturalPlaceList extends React.Component {
   render() {
+    console.log(this.props.data.filteredPlaces, 'data flow');
     let result;
     if (this.props.noFoundMessage) {
       result = <div>{this.props.noFoundMessage}</div>;

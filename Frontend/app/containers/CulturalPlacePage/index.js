@@ -18,8 +18,10 @@ import reducer from './reducer';
 import saga from './saga';
 import Navbar from '../../components/Header/Navbar';
 import DescriptionCard from '../../components/DescriptionCard';
+import makeSelectCulturalPlacesListPage from '../CulturalPlacesListPage/selectors';
+import { getCulturalPlaceData } from '../CulturalPlacesListPage/actions';
 
-export function CulturalPlacePage() {
+export function CulturalPlacePage({culturalPlaceListPage, dispatch}) {
   useInjectReducer({ key: 'culturalPlacePage', reducer });
   useInjectSaga({ key: 'culturalPlacePage', saga });
 
@@ -30,7 +32,10 @@ export function CulturalPlacePage() {
         <meta name="description" content="Description of CulturalPlacePage" />
       </Helmet>
       <Navbar />
-      <DescriptionCard />
+      <DescriptionCard
+        data={culturalPlaceListPage}
+        getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
+      />
     </div>
   );
 }
@@ -42,6 +47,7 @@ CulturalPlacePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   culturalPlacePage: makeSelectCulturalPlacePage(),
+  culturalPlaceListPage: makeSelectCulturalPlacesListPage(),
 });
 
 function mapDispatchToProps(dispatch) {

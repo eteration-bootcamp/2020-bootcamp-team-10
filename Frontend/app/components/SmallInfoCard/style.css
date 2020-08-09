@@ -1,0 +1,22 @@
+.smallInfoCard {
+    background-color: #D5F5E3;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 500px;
+    color: chocolate;
+}
+.smallInfoCardTitle {
+    font-size: 25px;
+}
+.smallInfoCardSubTitle {
+    font-size: 18px;
+}
+.smallInfoCardDescription {
+    font-size: 15px;
+}
+.cardButton {
+    background-color: chocolate;
+    color: #D5F5E3;
+}

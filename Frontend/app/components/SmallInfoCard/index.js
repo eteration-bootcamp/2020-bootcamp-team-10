@@ -11,16 +11,24 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
+  ButtonToggle,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import Link from 'react-router-dom';
+import './style.css';
 // import styled from 'styled-components';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SmallInfoCard extends React.Component {
+  onClickButton(place) {
+    console.log(place, 'Cultural Data Debug');
+    this.props.getCulturalPlace(place);
+  }
+
   render() {
+    const placeId = this.props.placeListData.cityId;
     return (
-      <Card>
+      <Card className="smallInfoCard">
         <CardImg
           top
           width="100%"
@@ -28,10 +36,21 @@ class SmallInfoCard extends React.Component {
           alt="Card image cap"
         />
         <CardBody>
-          <CardTitle>{this.props.placeListData.culturalPlace}</CardTitle>
-          <CardSubtitle>{this.props.placeListData.cityName}</CardSubtitle>
-          <CardText>{this.props.placeListData.cityDescription}</CardText>
-          <Button>Button</Button>
+          <CardTitle className="smallInfoCardTitle">
+            {this.props.placeListData.culturalPlace}
+          </CardTitle>
+          <CardSubtitle className="smallInfoCardSubTitle">
+            {this.props.placeListData.cityName}
+          </CardSubtitle>
+          <CardText className="smallInfoCardDescription">
+            {this.props.placeListData.cityDescription}
+          </CardText>
+          <ButtonToggle
+            className="cardButton"
+            onClick={() => this.onClickButton(this.state.placeToDisplay)}
+          >Button
+            {/* <Link to={`/cultural-place/${placeId}`} /> */}
+          </ButtonToggle>
         </CardBody>
       </Card>
     );
