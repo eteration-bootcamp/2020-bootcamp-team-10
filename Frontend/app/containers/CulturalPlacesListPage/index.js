@@ -15,12 +15,13 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectCulturalPlacesListPage from './selectors';
 import makeSelectHomePage from '../HomePage/selectors';
+import { getCulturalPlaceDataSuccess } from './actions';
 import reducer from './reducer';
 import saga from './saga';
-import Navbar from '../../components/Header/Navbar';
+import Navbar from '../../components/Header';
 import CulturalPlaceList from '../../components/CulturalPlaceList';
 
-export function CulturalPlacesListPage({homePage}) {
+export function CulturalPlacesListPage({ homePage, dispatch }) {
   useInjectReducer({ key: 'culturalPlacesListPage', reducer });
   useInjectSaga({ key: 'culturalPlacesListPage', saga });
 
@@ -35,7 +36,10 @@ export function CulturalPlacesListPage({homePage}) {
         />
       </Helmet>
       <Navbar />
-      <CulturalPlaceList data={homePage}/>
+      <CulturalPlaceList
+        data={homePage}
+        setFilterData={data => dispatch(getCulturalPlaceDataSuccess(data))}
+      />
     </div>
   );
 }
@@ -61,3 +65,7 @@ const withConnect = connect(
 );
 
 export default compose(withConnect)(CulturalPlacesListPage);
+
+CulturalPlacesListPage.propTypes = {
+  homePage: PropTypes.object,
+};

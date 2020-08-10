@@ -14,19 +14,18 @@ import {
   ButtonToggle,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
+
 // import styled from 'styled-components';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SmallInfoCard extends React.Component {
   onClickButton(place) {
-    console.log(place, 'Cultural Data Debug');
-    this.props.getCulturalPlace(place);
+    this.props.setFilterData(place);
   }
 
   render() {
-    const placeId = this.props.placeListData.cityId;
     return (
       <Card className="smallInfoCard">
         <CardImg
@@ -47,9 +46,11 @@ class SmallInfoCard extends React.Component {
           </CardText>
           <ButtonToggle
             className="cardButton"
-            onClick={() => this.onClickButton(this.state.placeToDisplay)}
-          >Button
-            {/* <Link to={`/cultural-place/${placeId}`} /> */}
+            onClick={() => this.onClickButton(this.props.placeListData)}
+          >
+            <Link to={`/cultural-place/${this.props.placeListData.cityId}`}>
+              Button
+            </Link>
           </ButtonToggle>
         </CardBody>
       </Card>
@@ -59,6 +60,7 @@ class SmallInfoCard extends React.Component {
 
 SmallInfoCard.propTypes = {
   placeListData: PropTypes.object,
+  setFilterData: PropTypes.func,
 };
 
 export default SmallInfoCard;

@@ -15,33 +15,23 @@ import {
   ButtonToggle,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
 import React from 'react';
-// import * as histPlaces from '../../data/historical-places.json';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import Background from '../../images/icon-512x512.png';
-import CulturalPlaceList from '../CulturalPlaceList';
 // import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
-      data: [],
       responseData: [],
-      historicalPlacesDataFromDb: [],
-      isCulturalPlaceList: false
     };
-  }
-
-  componentDidMount() {
-    // this.getData();
   }
 
   handleInputChange = event => {
     this.setState(
       {
+        // eslint-disable-next-line react/no-unused-state
         query: event.target.value,
       },
       () => {
@@ -55,14 +45,12 @@ export default class Search extends React.Component {
       const searchString = prevState.query;
       const serviceResponse = this.props.data.culturalPlaces;
       let responseData;
-      console.log('responseData -- ',serviceResponse);
       if (searchString.length > 1) {
         responseData = serviceResponse.filter(place =>
           place.culturalPlace
             .toLowerCase()
             .includes(searchString.toLowerCase()),
         );
-        console.log('resData Filteterd: ', responseData);
       } else {
         responseData = [];
       }
@@ -70,15 +58,6 @@ export default class Search extends React.Component {
       return { responseData };
     });
   };
-
-  onClickSearch(culturalData) {
-    console.log(culturalData, 'Cultural Data Debug');
-    if (culturalData !== undefined) {
-      this.setState({
-        isCulturalPlaceList: true,
-      });
-    }
-  }
 
   render() {
     console.log(this.props);
@@ -102,9 +81,7 @@ export default class Search extends React.Component {
         <Row form>
           <Col md={8} />
           <Col md={2}>
-            <ButtonToggle
-              onClick={() => this.onClickSearch(this.state.responseData)}
-            >
+            <ButtonToggle>
               <Link to="/cultural-place-list">Search</Link>
             </ButtonToggle>
           </Col>
@@ -123,3 +100,7 @@ export default class Search extends React.Component {
     );
   }
 }
+Search.propTypes = {
+  data: PropTypes.object,
+  setFilterData: PropTypes.func,
+};

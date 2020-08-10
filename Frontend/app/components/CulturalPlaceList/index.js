@@ -23,7 +23,10 @@ class CulturalPlaceList extends React.Component {
         <div>
           {this.props.data.filteredPlaces.map((place, i) => (
             <div key={i}>
-              <SmallInfoCard placeListData={place} />
+              <SmallInfoCard
+                placeListData={place}
+                setFilterData={data => this.props.setFilterData(data)}
+              />
             </div>
           ))}
         </div>

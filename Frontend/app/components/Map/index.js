@@ -2,8 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import './Map.css';
-import axios from 'axios';
-
+import PropTypes from 'prop-types';
 export default class OSMap extends React.Component {
   constructor(props) {
     super(props);
@@ -17,11 +16,7 @@ export default class OSMap extends React.Component {
   }
 
   getData = () => {
-    const url = 'http://localhost:7007/application/city/1';
-    axios.get(url).then(res => {
-      const x = res.data;
-      this.setState({ culturelData: [x] });
-    });
+    this.setState({ culturalData: [this.props.placeInfo] });
   };
 
   splitValue(value) {
@@ -46,13 +41,19 @@ export default class OSMap extends React.Component {
       <Container>
         <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
-            <Map center={[41.0082, 28.9784]} zoom={12}>
+            <Map
+              center={[
+                this.splitValue(this.props.placeInfo.cityCoordinates)[0],
+                this.splitValue(this.props.placeInfo.cityCoordinates)[1],
+              ]}
+              zoom={12}
+            >
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               />
-              {this.state.culturelData &&
-                this.state.culturelData.map(place => (
+              {this.state.culturalData &&
+                this.state.culturalData.map(place => (
                   <Marker
                     key={place.cityId}
                     position={[
@@ -88,3 +89,6 @@ export default class OSMap extends React.Component {
     );
   }
 }
+OSMap.propTypes = {
+  placeInfo: PropTypes.object,
+};

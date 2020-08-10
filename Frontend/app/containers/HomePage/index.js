@@ -38,11 +38,9 @@ export function HomePage({ dispatch, homePage }) {
         data={homePage}
         setFilterData={data => dispatch(setFilteredSearchDataSuccess(data))}
       />
-      <OSMap />
     </>
   );
 }
-
 HomePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };

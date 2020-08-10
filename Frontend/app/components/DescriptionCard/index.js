@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import {
   Card,
@@ -15,28 +15,28 @@ import {
   CardTitle,
   CardSubtitle,
 } from 'reactstrap';
-
-function DescriptionCard() {
+import OSMap from '../Map';
+function DescriptionCard(props) {
   return (
     <div>
       <Card>
         <CardBody>
-          <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardTitle>{props.data.culturalPlace.culturalPlace}</CardTitle>
+          <CardSubtitle>{props.data.culturalPlace.cityName}</CardSubtitle>
         </CardBody>
         <CardBody>
-          <CardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card s content.
-          </CardText>
+          <CardText>{props.data.culturalPlace.cityDescription}</CardText>
           <CardLink href="#">Card Link</CardLink>
           <CardLink href="#">Another Link</CardLink>
+          <OSMap placeInfo={props.data.culturalPlace} />
         </CardBody>
       </Card>
     </div>
   );
 }
 
-DescriptionCard.propTypes = {};
+DescriptionCard.propTypes = {
+  data: PropTypes.object,
+};
 
 export default DescriptionCard;
