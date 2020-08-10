@@ -23,7 +23,7 @@ import Header from '../../components/Header';
 import Search from '../../components/Search';
 import OSMap from '../../components/Map';
 
-export function HomePage({ dispatch, homePage }) {
+export function HomePage({ homePage, dispatch }) {
   useInjectReducer({ key: 'homePage', reducer });
   useInjectSaga({ key: 'homePage', saga });
 

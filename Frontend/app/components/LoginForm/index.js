@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Col,
@@ -11,10 +12,10 @@ import {
 import { Link } from 'react-router-dom';
 import fire from '../../config/fire';
 import './style.css';
-// import PropTypes from 'prop-types';
+import { setAuthentication } from '../../containers/LoginPage/actions';
 // import styled from 'styled-components';
 
-class LoginForm extends React.Component {
+export default class LoginForm extends React.Component {
   signIn() {
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
@@ -24,6 +25,8 @@ class LoginForm extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(u => {
         console.log('success');
+       console.log(this.props.setAuth(true), 'isLoggedIn');
+        console.log(this.state.isLogin, 'isLogin');
       })
       .catch(error => {
         console.log(error);
@@ -84,4 +87,6 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+// LoginForm.propTypes = {
+//   setAuth: PropTypes.object,
+// };

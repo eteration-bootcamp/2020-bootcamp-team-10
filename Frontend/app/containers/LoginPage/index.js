@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -13,24 +13,27 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import Header from '../../components/Header';
 import makeSelectLoginPage from './selectors';
+import { setAuthenticationSuccess } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
 import LoginForm from '../../components/LoginForm';
 
-export function LoginPage() {
+export function LoginPage(loginPage, dispatch) {
   useInjectReducer({ key: 'loginPage', reducer });
   useInjectSaga({ key: 'loginPage', saga });
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>LoginPage</title>
         <meta name="description" content="Description of LoginPage" />
       </Helmet>
-      <LoginForm />
-    </div>
+      <Header authData={loginPage} />
+      <LoginForm setAuth={data => dispatch(setAuthenticationSuccess(data))} />
+    </>
   );
 }
 
@@ -53,4 +56,7 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(LoginPage);
+export default compose(
+  withConnect,
+  memo,
+)(LoginPage);
