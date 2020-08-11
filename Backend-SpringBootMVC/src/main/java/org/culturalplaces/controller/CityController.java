@@ -18,25 +18,34 @@ public class CityController {
 
 	@Autowired
 	private CityService cityService;
-	
-	
+
 	@RequestMapping(value = "/city/{id}", method = RequestMethod.GET)
 	public City findByCityId(@PathVariable("id") Long id) {
-		
+
 		return cityService.findByCityId(id);
 	}
-	
+
 	@RequestMapping(value = "/city/list", method = RequestMethod.GET)
 	public List<City> getAllCityList() {
-		
+
 		return cityService.getAllCityList();
 	}
-	
+
 	@RequestMapping(value = "/city", method = RequestMethod.POST)
 	public Long save(@RequestBody CityContext cityContext) {
-		
+
 		return cityService.save(cityContext);
 	}
-	
-	
+
+	@RequestMapping(value = "/city/delete", method = RequestMethod.DELETE)
+	public void deleteCity(@PathVariable Long cityId) {
+		cityService.delete(cityId);
+	}
+
+	@RequestMapping(value = "/city/search", method = RequestMethod.GET)
+	public List<City> searchCity(@PathVariable String cityName) {
+
+		return cityService.findByCityName(cityName);
+	}
+
 }
