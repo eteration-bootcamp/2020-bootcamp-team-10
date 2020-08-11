@@ -40,12 +40,9 @@ export default class LoginForm extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(u => {
-        self.checkLogin(u);
-        // this.props.setAuth(true);
-        // this.setState({userInfo: u});
-        // console.log('success');
-        // console.log(u);
-        // this.checkLogin(u);
+        console.log('success');
+        console.log(this.props.setAuth(true), 'isLoggedIn');
+        console.log(this.state.isLogin, 'isLogin');
       })
 
       .catch(error => {
@@ -95,13 +92,15 @@ export default class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup>
+              <Button className="loginButton" onClick={this.signIn}>
+                LOGIN
+              </Button>
+            </FormGroup>
+            <FormGroup>
               <Link className="loginLink" to="/sign-up">
                 Do not have an account?
               </Link>
             </FormGroup>
-            <Button className="loginButton" onClick={this.signIn}>
-              LOGIN
-            </Button>
           </Form>
         </Container>
       </div>
