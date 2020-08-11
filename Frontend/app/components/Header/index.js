@@ -5,18 +5,32 @@
  */
 
 import React, { memo } from 'react';
-import NavBar from './Navbar';
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
+import PropTypes from 'prop-types';
+import NavBar from './NavBar';
+import makeSelectLoginPage from '../../containers/LoginPage/selectors';
 
-function Header() {
+function Header({ props, loginPage }) {
+  // console.log(props.authData, 'auth data');
   return (
     <div>
-      <NavBar />
+      <NavBar isLogin={loginPage} />
     </div>
   );
 }
 
-Header.propTypes = {};
+const mapStateToProps = createStructuredSelector({
+  loginPage: makeSelectLoginPage(),
+});
 
-export default memo(Header);
+const withConnect = connect(
+  mapStateToProps,
+  null,
+);
+
+export default compose(
+  withConnect,
+  memo,
+)(Header);

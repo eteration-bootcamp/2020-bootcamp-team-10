@@ -13,34 +13,56 @@ import { Link } from 'react-router-dom';
 import fire from '../../config/fire';
 import './style.css';
 import { setAuthentication } from '../../containers/LoginPage/actions';
+import { setLogLevel } from 'firebase';
 // import styled from 'styled-components';
 
 export default class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userInfo: {},
+    };
+    this.checkLogin = this.checkLogin.bind(this);
+  }
+
+
+  checkLogin(userInfo) {
+    if (userInfo.additionalUserInfo.operationType === 'signIn') {
+      this.props.setAuth(true);
+    }
+  }
+
   signIn() {
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
-
+    const self = this;
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(u => {
-        console.log('success');
-       console.log(this.props.setAuth(true), 'isLoggedIn');
-        console.log(this.state.isLogin, 'isLogin');
+        self.checkLogin(u);
+        // this.props.setAuth(true);
+        // this.setState({userInfo: u});
+        // console.log('success');
+        // console.log(u);
+        // this.checkLogin(u);
       })
+
       .catch(error => {
         console.log(error);
       });
   }
 
   render() {
+    this.props.setAuth(true);
+    // console.log(this.props.setAuth(true))
     return (
       <div className="login">
         <Container className="loginContainer">
           <Form>
             <FormGroup>
               <Col sm={8} md={{ size: 6, offset: 4 }}>
-                <Label className="headerLabel">Sign in to</Label>
+                <Label className="headerLabel">Login to</Label>
                 <Label className="tripify">Tripify</Label>
               </Col>
             </FormGroup>

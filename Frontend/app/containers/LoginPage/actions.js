@@ -28,7 +28,7 @@ export function setAuthenticationSuccess(data) {
     data,
   };
 }
-export function GetAuthenticationData() {
+export function getAuthenticationData() {
   return {
     type: GET_AUTHENTICATION_DATA,
   };

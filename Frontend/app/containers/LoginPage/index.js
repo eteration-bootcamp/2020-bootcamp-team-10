@@ -21,7 +21,7 @@ import saga from './saga';
 
 import LoginForm from '../../components/LoginForm';
 
-export function LoginPage(loginPage, dispatch) {
+export function LoginPage({ loginPage, dispatch }) {
   useInjectReducer({ key: 'loginPage', reducer });
   useInjectSaga({ key: 'loginPage', saga });
 
@@ -32,7 +32,10 @@ export function LoginPage(loginPage, dispatch) {
         <meta name="description" content="Description of LoginPage" />
       </Helmet>
       <Header authData={loginPage} />
-      <LoginForm setAuth={data => dispatch(setAuthenticationSuccess(data))} />
+      <LoginForm
+        userInfo={loginPage}
+        setAuth={data => dispatch(setAuthenticationSuccess(data))}
+      />
     </>
   );
 }

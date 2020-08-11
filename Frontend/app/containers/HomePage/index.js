@@ -17,11 +17,10 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectHomePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
 import { getAllData, setFilteredSearchDataSuccess } from './actions';
 import Header from '../../components/Header';
 import Search from '../../components/Search';
-import OSMap from '../../components/Map';
+
 
 export function HomePage({ homePage, dispatch }) {
   useInjectReducer({ key: 'homePage', reducer });

@@ -25,7 +25,6 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
   useInjectReducer({ key: 'culturalPlacesListPage', reducer });
   useInjectSaga({ key: 'culturalPlacesListPage', saga });
 
-
   return (
     <div>
       <Helmet>

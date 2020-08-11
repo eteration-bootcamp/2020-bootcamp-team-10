@@ -8,33 +8,60 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line react/prefer-stateless-function
 class NavBar extends React.Component {
   render() {
+    console.log(this.props.isLogin, 'ısLogin Debug');
+
+    let loginData = false;
+    if (this.props.isLogin.isLoggedIn === true) {
+      loginData = true;
+    } else {
+      loginData = false;
+    }
     return (
       <div>
         <Navbar color="dark" expand="md">
-          <NavbarBrand href="/">Trip</NavbarBrand>
+          <Link to="/">Trip</Link>
           <NavbarToggler />
           <Collapse navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/">About Us</NavLink>
+                <Link to="/">About Us</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/">GitHub</NavLink>
+                <Link to="/">GitHub</Link>
               </NavItem>
             </Nav>
-            <Nav>
-              <NavItem>
-                <NavLink href="/login">Login</NavLink>
-              </NavItem>
-            </Nav>
-            <Nav>
-              <NavItem>
-                <NavLink href="/sign-up">Sign Up</NavLink>
-              </NavItem>
-            </Nav>
+            {!loginData ? (
+              <div>
+                <Nav>
+                  <NavItem>
+                    <Link to="/login">Login</Link>
+                  </NavItem>
+                </Nav>
+                <Nav>
+                  <NavItem>
+                    <Link to="/sign-up">Sign Up</Link>
+                  </NavItem>
+                </Nav>
+              </div>
+            ) : (
+              <div>
+                <Nav>
+                  <NavItem>
+                    <Link to="/login">LogOut</Link>
+                  </NavItem>
+                </Nav>
+                <Nav>
+                  <NavItem>
+                    <Link to="/">LogOut</Link>
+                  </NavItem>
+                </Nav>
+              </div>
+            )}
           </Collapse>
         </Navbar>
       </div>
@@ -43,3 +70,7 @@ class NavBar extends React.Component {
 }
 
 export default NavBar;
+
+Navbar.propTypes = {
+  isLogin: PropTypes.bool,
+};
