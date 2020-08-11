@@ -68,13 +68,15 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Link to="/login" className="signUpLink">
-                Already have an account?
-              </Link>
-            </FormGroup>
             <Button className="signUpButton" onClick={this.signUp}>
               SIGN UP
             </Button>
+            </FormGroup>
+            <FormGroup>
+            <Link to="/login" className="signUpLink">
+              Already have an account?
+            </Link>
+          </FormGroup>
           </Form>
         </Container>
       </div>

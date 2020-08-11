@@ -25,7 +25,7 @@ export default class LoginForm extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(u => {
         console.log('success');
-       console.log(this.props.setAuth(true), 'isLoggedIn');
+        console.log(this.props.setAuth(true), 'isLoggedIn');
         console.log(this.state.isLogin, 'isLogin');
       })
       .catch(error => {
@@ -73,13 +73,15 @@ export default class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup>
+              <Button className="loginButton" onClick={this.signIn}>
+                LOGIN
+              </Button>
+            </FormGroup>
+            <FormGroup>
               <Link className="loginLink" to="/sign-up">
                 Do not have an account?
               </Link>
             </FormGroup>
-            <Button className="loginButton" onClick={this.signIn}>
-              LOGIN
-            </Button>
           </Form>
         </Container>
       </div>
