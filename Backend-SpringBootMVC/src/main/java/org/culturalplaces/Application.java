@@ -10,7 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 		"org.culturalplaces.service.model",
 		"org.culturalplaces.controller",
 		"org.culturalplaces.dao.jpa.entity",
-		"org.culturalplaces.dao.jpa.repository"})
+		"org.culturalplaces.dao.jpa.repository",
+		"org.culturalplaces.config"})
 
 @SpringBootApplication
 public class Application {

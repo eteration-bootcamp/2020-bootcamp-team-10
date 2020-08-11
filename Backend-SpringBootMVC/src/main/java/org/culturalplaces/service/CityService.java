@@ -46,24 +46,21 @@ public class CityService {
 		
 		return city.getCityId();
 	}
-	
-	public List<City> searchBy(String cityName) {
 
-		List<City> result = null;
-		
-			result = cityRepository.findByCityName(cityName);
-		
-		return result;
+	
+	public List<City> findByCityName(String cityName) {
+		return cityRepository.findByCityName(cityName);
 	}
 	
-	public List<City> searchByCulturalPlaceName (String culturalPlace) {
-
-		List<City> result = null;
-		
-			result = cityRepository.findByCulturalPlaceName(culturalPlace);
-		
-		return result;
+	public List<City> findByCulturalPlaceName(String culturalPlace) {
+		return cityRepository.findByCulturalPlaceName(culturalPlace);
 	}
-	
+
+	@Transactional
+	public void delete(Long cityId) {
+		if(cityRepository.findWithCityId(cityId)!= null) {
+			cityRepository.deleteById(cityId);
+		}
+	}
 
 }
