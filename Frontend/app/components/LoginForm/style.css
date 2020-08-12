@@ -9,7 +9,7 @@
     top: 22%;
     width: 50%;
     font-size: 18px;
-    background-color:rgb(213, 245, 227,0.7) ;
+    background-color:rgba(0, 0, 0, 0.571) ;
     box-shadow: 10px 10px 5px #aaaaaa54;
     
 }
@@ -37,6 +37,7 @@
 .headerLabel {
     padding-bottom: 5%;
     font-size: 25px;
+    color: white;
 }
 .tripify {
     color: chocolate;
@@ -44,4 +45,10 @@
     font-size: 35px;
     padding-left: 7px;
 
+}
+.email{
+    color: white;
+}
+.password {
+    color: white;
 }

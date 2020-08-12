@@ -26,7 +26,7 @@ export function SignUpPage({ loginPage, dispatch }) {
   useInjectReducer({ key: 'signUpPage', reducer });
   useInjectSaga({ key: 'signUpPage', saga });
   return (
-    <div className="background">
+    <div className="sign-up-background">
     {console.log('loginPage in signup', loginPage)}
       <Helmet>
         <title>SignUpPage</title>
