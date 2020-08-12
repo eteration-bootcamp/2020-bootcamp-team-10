@@ -1,22 +1,11 @@
-.signUp {
-    position: fixed;
-    background-image: url("../../images/sign-up.jpg");
-    width: 100%;
-    height:100% ;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-
-}
-
 .signUpContainer {
+    margin-top: 5%;
     position: relative;
-    /* height: 300px; */
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left:3%;
     border-radius: 25px;
-    top: 30%;
+    top: 15%;
     width: 50%;
     font-size: 18px;
     background-color:rgb(213, 245, 227,0.7) ;
@@ -49,6 +38,7 @@
     font-size: 25px;
 }
 .tripify {
+    padding-left: 7px;
     color: chocolate;
     font-style: italic;
     font-size: 35px;

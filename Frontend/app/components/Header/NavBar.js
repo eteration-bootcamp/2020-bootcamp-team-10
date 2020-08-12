@@ -1,63 +1,74 @@
 import React from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './style.css';
 // eslint-disable-next-line react/prefer-stateless-function
 class NavBar extends React.Component {
+  onClickLogOut() {
+    this.props.setAuth(false);
+  }
+
   render() {
     console.log(this.props.isLogin, 'ısLogin Debug');
 
     let loginData = false;
     if (this.props.isLogin.isLoggedIn === true) {
       loginData = true;
-    } else {
-      loginData = false;
     }
+
     return (
       <div>
-        <Navbar color="dark" expand="md">
-          <Link to="/">Trip</Link>
+        <Navbar expand="md" className="navbar">
+          <Link className="header" to="/">
+            Tripify
+          </Link>
           <NavbarToggler />
           <Collapse navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <Link to="/">About Us</Link>
+              <NavItem className="item">
+                <Link className="link" to="/">
+                  About Us
+                </Link>
               </NavItem>
-              <NavItem>
-                <Link to="/">GitHub</Link>
+              <NavItem className="item">
+                <Link className="link" to="/">
+                  GitHub
+                </Link>
               </NavItem>
             </Nav>
             {!loginData ? (
               <div>
-                <Nav>
-                  <NavItem>
-                    <Link to="/login">Login</Link>
+                <Nav className="loginNav">
+                  <NavItem className="item">
+                    <Link className="link" to="/login">
+                      Login
+                    </Link>
                   </NavItem>
-                </Nav>
-                <Nav>
-                  <NavItem>
-                    <Link to="/sign-up">Sign Up</Link>
+                  <NavItem className="item">
+                    {' '}
+                    <Link className="link" to="/sign-up">
+                      Sign Up
+                    </Link>
                   </NavItem>
                 </Nav>
               </div>
             ) : (
               <div>
-                <Nav>
-                  <NavItem>
-                    <Link to="/login">LogOut</Link>
+                <Nav className="logOutNav">
+                  <NavItem className="item">
+                    <Link
+                      className="link"
+                      to="/sign-up"
+                      onClick={this.onClickLogOut}
+                    >
+                      LogOut
+                    </Link>
                   </NavItem>
-                </Nav>
-                <Nav>
-                  <NavItem>
-                    <Link to="/">LogOut</Link>
+                  <NavItem className="item">
+                    <Link className="link" to="/">
+                      LogOut
+                    </Link>
                   </NavItem>
                 </Nav>
               </div>

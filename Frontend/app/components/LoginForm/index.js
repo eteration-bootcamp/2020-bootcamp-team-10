@@ -48,11 +48,11 @@ export default class LoginForm extends React.Component {
       .catch(error => {
         console.log(error);
       });
+
   }
 
   render() {
-    this.props.setAuth(true);
-    // console.log(this.props.setAuth(true))
+    console.log(this.props.setAuth(true))
     return (
       <div className="login">
         <Container className="loginContainer">

@@ -20,12 +20,13 @@ import saga from './saga';
 import SignUpForm from '../../components/SignUpForm';
 import Header from '../../components/Header';
 import { getAuthenticationData } from '../LoginPage/actions';
+import './style.css';
 
 export function SignUpPage({ loginPage, dispatch }) {
   useInjectReducer({ key: 'signUpPage', reducer });
   useInjectSaga({ key: 'signUpPage', saga });
   return (
-    <div>
+    <div className="background">
     {console.log('loginPage in signup', loginPage)}
       <Helmet>
         <title>SignUpPage</title>

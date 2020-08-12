@@ -1,3 +1,25 @@
 .navbar{
-    height: 20%;
+    padding-bottom: 1%;
+    background-color:rgba(175, 246, 206, 0) ;
+    box-shadow: 10px 10px 5px #aaaaaa15;
+
+}
+.item {
+    padding-left: 15px;
+}
+.item:hover {
+    background-color: #ddd;
+    font-size: 35px;
+  }
+.link{
+    color: chocolate;
+    font-size: 20px;
+}
+.header {
+    color: chocolate;
+    font-style: italic;
+    font-size: 35px;
+    font-weight: bold;
+    
+    font-family: 'Times New Roman', Times, serif;
 }

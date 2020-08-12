@@ -1,22 +1,12 @@
-.login {
-    position: fixed;
-    background-image: url("../../images/main.jpg");
-    width: 100%;
-    height:100% ;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-
-}
-
 .loginContainer {
+    margin-top: 7%;
     position: relative;
     /* height: 300px; */
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left:3%;
     border-radius: 25px;
-    top: 30%;
+    top: 22%;
     width: 50%;
     font-size: 18px;
     background-color:rgb(213, 245, 227,0.7) ;
@@ -52,5 +42,6 @@
     color: chocolate;
     font-style: italic;
     font-size: 35px;
+    padding-left: 7px;
 
 }

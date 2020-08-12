@@ -40,6 +40,48 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup row>
+              <Label for="name" sm={2}>
+                Name:
+              </Label>
+              <Col sm={8} md={{ size: 6, offset: 1 }}>
+                <Input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  className="naemInputBox"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="surname" sm={2}>
+                Surname:
+              </Label>
+              <Col sm={8} md={{ size: 6, offset: 1 }}>
+                <Input
+                  type="surname"
+                  name="surname"
+                  id="surname"
+                  placeholder="Surname"
+                  className="surnameInputBox"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="username" sm={2}>
+                Username:
+              </Label>
+              <Col sm={8} md={{ size: 6, offset: 1 }}>
+                <Input
+                  type="username"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  className="UsernameInputBox"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
               <Label for="email" sm={2}>
                 E-mail:
               </Label>
