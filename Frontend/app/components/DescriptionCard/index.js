@@ -16,10 +16,13 @@ import {
   CardSubtitle,
 } from 'reactstrap';
 import OSMap from '../Map';
+import PhotoSlider from '../PhotoSlider';
+import './style.css';
 function DescriptionCard(props) {
   return (
     <div>
-      <Card>
+      <Card className="cardClass">
+        <PhotoSlider />
         <CardBody>
           <CardTitle>{props.data.culturalPlace.culturalPlace}</CardTitle>
           <CardSubtitle>{props.data.culturalPlace.cityName}</CardSubtitle>
