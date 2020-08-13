@@ -32,13 +32,13 @@ export function HomePage({ homePage, dispatch }) {
 
   return (
     <>
-    <div className= "backgraound-home">
-      <Header />
-      <Search
-        data={homePage}
-        setFilterData={data => dispatch(setFilteredSearchDataSuccess(data))}
-      />
-     </div>
+      <div className="backgraound-home">
+        <Header />
+        <Search
+          data={homePage}
+          setFilterData={data => dispatch(setFilteredSearchDataSuccess(data))}
+        />
+      </div>
     </>
   );
 }

@@ -40,7 +40,7 @@ export function getAllDataFailure(error) {
 }
 
 export function setFilteredSearchData() {
-  console.log("filteredSearch Action");
+  console.log('filteredSearch Action');
   return {
     type: SET_FILTERED_SEARCH_DATA,
   };

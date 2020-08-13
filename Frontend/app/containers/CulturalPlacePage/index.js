@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -21,15 +21,24 @@ import DescriptionCard from '../../components/DescriptionCard';
 import makeSelectCulturalPlacesListPage from '../CulturalPlacesListPage/selectors';
 import makeSelectLoginPage from '../LoginPage/selectors';
 import { getCulturalPlaceData } from '../CulturalPlacesListPage/actions';
+import { getDataWithId } from './actions';
 import './style.css';
 
 export function CulturalPlacePage({
   loginPage,
   culturalPlaceListPage,
   dispatch,
+  culturalPlacePage,
 }) {
   useInjectReducer({ key: 'culturalPlacePage', reducer });
   useInjectSaga({ key: 'culturalPlacePage', saga });
+
+  // useEffect(() => {
+  //   // dispatch(getDataWithId('1'));
+  //   const { id } = props.params.cityId;
+
+  //   dispatch(getDataWithId(id));
+  // }, {});
 
   return (
     <div className="culturalPlacePage-background">
@@ -41,6 +50,7 @@ export function CulturalPlacePage({
         <Header authData={loginPage} />
         <div className="culturalPlacePage-background-black">
           <DescriptionCard
+            // placeDataWithId={data => dispatch(getDataWithId(data))}
             data={culturalPlaceListPage}
             getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
           />

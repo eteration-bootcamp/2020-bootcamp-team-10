@@ -73,7 +73,9 @@ export default class Search extends React.Component {
                   <div className="tripify">
                     <Label>Tripify</Label>
                   </div>
-                  <Label className="whereDoYou" for="search">Where do you want to go?</Label>
+                  <Label className="whereDoYou" for="search">
+                    Where do you want to go?
+                  </Label>
                   <Input
                     type="text"
                     name="search"
@@ -88,7 +90,7 @@ export default class Search extends React.Component {
               <Row form>
                 <Col md={6} />
                 <Col md={4}>
-                  <ButtonToggle className="button" >
+                  <ButtonToggle className="button">
                     <Link to="/cultural-place-list">
                       <span className="button-text">Search</span>
                     </Link>
