@@ -73,7 +73,7 @@ export default class Search extends React.Component {
                   <div className="tripify">
                     <Label>Tripify</Label>
                   </div>
-                  <Label for="search">Where do you want to go?</Label>
+                  <Label className="whereDoYou" for="search">Where do you want to go?</Label>
                   <Input
                     type="text"
                     name="search"
@@ -86,22 +86,24 @@ export default class Search extends React.Component {
             </Row>
             <FormGroup>
               <Row form>
-                <Col md={8} />
-                <Col md={2}>
-                  <ButtonToggle className="button" href="/cultural-place-list">
-                    <span>Search</span>
+                <Col md={6} />
+                <Col md={4}>
+                  <ButtonToggle className="button" >
+                    <Link to="/cultural-place-list">
+                      <span className="button-text">Search</span>
+                    </Link>
                   </ButtonToggle>
                 </Col>
                 <Col>
-                  {this.state.responseData.map((place, i) => (
+                  {/* {this.state.responseData.map((place, i) => (
                     <div key={i}>
                       <p>
                         {place.culturalPlace}, {place.cityName} {place.cityId}
                       </p>
                     </div>
-                  ))}
+                  ))} */}
                 </Col>
-                <Col md={1} />
+                <Col md={2} />
               </Row>
             </FormGroup>
           </Form>

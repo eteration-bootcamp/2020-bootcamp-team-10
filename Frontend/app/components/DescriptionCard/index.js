@@ -23,16 +23,24 @@ function DescriptionCard(props) {
     <div>
       <Card className="cardClass">
         <PhotoSlider />
+        <div className="info-container">
         <CardBody>
-          <CardTitle>{props.data.culturalPlace.culturalPlace}</CardTitle>
-          <CardSubtitle>{props.data.culturalPlace.cityName}</CardSubtitle>
+          <CardTitle className="place-name">
+            {props.data.culturalPlace.culturalPlace}
+          </CardTitle>
+          <CardSubtitle className="place-city">
+            {props.data.culturalPlace.cityName}
+          </CardSubtitle>
         </CardBody>
         <CardBody>
-          <CardText>{props.data.culturalPlace.cityDescription}</CardText>
+          <CardText className="place-description">
+            {props.data.culturalPlace.cityDescription}
+          </CardText>
           <CardLink href="#">Card Link</CardLink>
           <CardLink href="#">Another Link</CardLink>
-          <OSMap placeInfo={props.data.culturalPlace} />
         </CardBody>
+        </div>
+        <OSMap placeInfo={props.data.culturalPlace} />
       </Card>
     </div>
   );

@@ -20,7 +20,7 @@ import saga from './saga';
 import { getAllData, setFilteredSearchDataSuccess } from './actions';
 import Header from '../../components/Header';
 import Search from '../../components/Search';
-
+import './style.css';
 
 export function HomePage({ homePage, dispatch }) {
   useInjectReducer({ key: 'homePage', reducer });
@@ -32,11 +32,13 @@ export function HomePage({ homePage, dispatch }) {
 
   return (
     <>
+    <div className= "backgraound-home">
       <Header />
       <Search
         data={homePage}
         setFilterData={data => dispatch(setFilteredSearchDataSuccess(data))}
       />
+     </div>
     </>
   );
 }

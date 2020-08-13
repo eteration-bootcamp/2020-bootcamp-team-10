@@ -145,6 +145,6 @@ module.exports = require('./webpack.base.babel')({
 
   performance: {
     assetFilter: assetFilename =>
-      !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
+      !/(\.map$)|(^(main\.|tripify-icon\.))/.test(assetFilename),
   },
 });

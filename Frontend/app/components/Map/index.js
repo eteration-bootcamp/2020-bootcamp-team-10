@@ -17,6 +17,7 @@ export default class OSMap extends React.Component {
 
   getData = () => {
     this.setState({ culturalData: [this.props.placeInfo] });
+    console.log(this.props.placeInfo, 'placeInfo')
   };
 
   splitValue(value) {
