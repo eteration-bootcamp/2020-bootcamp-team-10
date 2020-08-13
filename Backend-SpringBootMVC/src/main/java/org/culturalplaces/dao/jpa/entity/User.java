@@ -1,20 +1,19 @@
 package org.culturalplaces.dao.jpa.entity;
-
 import javax.persistence.*;
 import java.util.Collection;
 
 
+
 @Entity
-@Table(name = "personal")
+@Table(name = "user")
 public class User {
 
     @Id
-    @org.springframework.data.annotation.Id
-    @Column(name = "personal_id")
-	private int id;
+    @Column(name = "user_id")
+	private Long userId;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @Column(name = "email")
+	private String email;
 
     @Column(name = "password")
     private String password;
@@ -25,20 +24,31 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     
+    @Column(name = "enabled")
+    private boolean enabled;
     
     @Column(name = "username")
     private String username;
-   
+    
+    
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+    		name = "role_user",
+    		joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
 
-    public int getId() {
-        return id;
-    }
+    private Collection<Role> roles;
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getEmail() {
+    public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getEmail() {
         return email;
     }
 
@@ -70,6 +80,13 @@ public class User {
         this.lastName = lastName;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public String getUsername() {
         return username;
@@ -79,6 +96,12 @@ public class User {
         this.username = username;
     }
 
-   
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
 
 }
