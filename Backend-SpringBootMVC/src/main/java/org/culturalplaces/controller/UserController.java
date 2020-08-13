@@ -10,13 +10,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
 
-@RestController
-@RequestMapping("/application")
+@Controller
 public class UserController {
     @Autowired
     UserService userService;
@@ -33,7 +31,10 @@ public class UserController {
 
         if (result.hasErrors()) {
             return "register";
-        } 
+        } else {
+            userService.saveUser(user);
+
+        }
         return "index";
     }
 
