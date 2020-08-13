@@ -63,6 +63,31 @@
             PRIMARY KEY (`city_id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+           CREATE TABLE user (
+           user_id      INT             NOT NULL,
+           email  VARCHAR(16)            NOT NULL,
+           password  VARCHAR(14)     NOT NULL,
+           first_name  VARCHAR(14)     NOT NULL,
+           last_name   VARCHAR(16)     NOT NULL,
+           enabled      BOOLEAN  NOT NULL,    
+           username   VARCHAR(16)     NOT NULL,
+           PRIMARY KEY (user_id)
+            );
+
+          CREATE TABLE role (
+          role_id     CHAR(4)         NOT NULL,
+          role_type   VARCHAR(40)     NOT NULL,
+          PRIMARY KEY (role_id),
+          UNIQUE  KEY (role_type)
+          );
+
+          CREATE TABLE role_user (
+          user_id     INT             NOT NULL,
+          role_id     CHAR(4)         NOT NULL,
+          FOREIGN KEY (user_id)  REFERENCES user   (user_id)  ON DELETE CASCADE,
+          FOREIGN KEY (role_id) REFERENCES role (role_id) ON DELETE CASCADE,
+          PRIMARY KEY (user_id,role_id)
+          );
       
       
       **If you want to ask question, you can write on discord.
