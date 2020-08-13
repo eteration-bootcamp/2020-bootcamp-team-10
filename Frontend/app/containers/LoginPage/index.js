@@ -18,6 +18,7 @@ import makeSelectLoginPage from './selectors';
 import { setAuthenticationSuccess } from './actions';
 import reducer from './reducer';
 import saga from './saga';
+import './style.css';
 
 import LoginForm from '../../components/LoginForm';
 
@@ -26,7 +27,7 @@ export function LoginPage({ loginPage, dispatch }) {
   useInjectSaga({ key: 'loginPage', saga });
 
   return (
-    <>
+    <div className="login-background">
       <Helmet>
         <title>LoginPage</title>
         <meta name="description" content="Description of LoginPage" />
@@ -36,7 +37,7 @@ export function LoginPage({ loginPage, dispatch }) {
         userInfo={loginPage}
         setAuth={data => dispatch(setAuthenticationSuccess(data))}
       />
-    </>
+    </div>
   );
 }
 

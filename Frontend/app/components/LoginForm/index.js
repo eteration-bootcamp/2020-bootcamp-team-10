@@ -48,11 +48,11 @@ export default class LoginForm extends React.Component {
       .catch(error => {
         console.log(error);
       });
+
   }
 
   render() {
-    this.props.setAuth(true);
-    // console.log(this.props.setAuth(true))
+    console.log(this.props.setAuth(true))
     return (
       <div className="login">
         <Container className="loginContainer">
@@ -64,7 +64,7 @@ export default class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label for="email" sm={2}>
+              <Label for="email" className="email" sm={2}>
                 E-mail:
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>
@@ -78,7 +78,7 @@ export default class LoginForm extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label for="password" sm={2}>
+              <Label for="password" className="password" sm={2}>
                 Password:
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>

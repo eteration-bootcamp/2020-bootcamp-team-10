@@ -16,26 +16,36 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectCulturalPlacePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import Navbar from '../../components/Header/Navbar';
+import Header from '../../components/Header';
 import DescriptionCard from '../../components/DescriptionCard';
 import makeSelectCulturalPlacesListPage from '../CulturalPlacesListPage/selectors';
+import makeSelectLoginPage from '../LoginPage/selectors';
 import { getCulturalPlaceData } from '../CulturalPlacesListPage/actions';
+import './style.css';
 
-export function CulturalPlacePage({culturalPlaceListPage, dispatch}) {
+export function CulturalPlacePage({
+  loginPage,
+  culturalPlaceListPage,
+  dispatch,
+}) {
   useInjectReducer({ key: 'culturalPlacePage', reducer });
   useInjectSaga({ key: 'culturalPlacePage', saga });
 
   return (
-    <div>
-      <Helmet>
-        <title>CulturalPlacePage</title>
-        <meta name="description" content="Description of CulturalPlacePage" />
-      </Helmet>
-      <Navbar />
-      <DescriptionCard
-        data={culturalPlaceListPage}
-        getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
-      />
+    <div className="culturalPlacePage-background">
+      <div>
+        <Helmet>
+          <title>CulturalPlacePage</title>
+          <meta name="description" content="Description of CulturalPlacePage" />
+        </Helmet>
+        <Header authData={loginPage} />
+        <div className="culturalPlacePage-background-black">
+          <DescriptionCard
+            data={culturalPlaceListPage}
+            getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -48,6 +58,7 @@ CulturalPlacePage.propTypes = {
 const mapStateToProps = createStructuredSelector({
   culturalPlacePage: makeSelectCulturalPlacePage(),
   culturalPlaceListPage: makeSelectCulturalPlacesListPage(),
+  loginPage: makeSelectLoginPage(),
 });
 
 function mapDispatchToProps(dispatch) {

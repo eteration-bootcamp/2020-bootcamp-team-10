@@ -40,7 +40,49 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label for="email" sm={2}>
+              <Label for="name" className="name" sm={2}>
+                Name:
+              </Label>
+              <Col sm={8} md={{ size: 6, offset: 1 }}>
+                <Input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  className="naemInputBox"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="surname" className="surname" sm={2}>
+                Surname:
+              </Label>
+              <Col sm={8} md={{ size: 6, offset: 1 }}>
+                <Input
+                  type="surname"
+                  name="surname"
+                  id="surname"
+                  placeholder="Surname"
+                  className="surnameInputBox"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="username" className="username" sm={2}>
+                Username:
+              </Label>
+              <Col sm={8} md={{ size: 6, offset: 1 }}>
+                <Input
+                  type="username"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  className="UsernameInputBox"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label for="email" className="email" sm={2}>
                 E-mail:
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>
@@ -54,7 +96,7 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label for="password" sm={2}>
+              <Label for="password" className="password" sm={2}>
                 Password:
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>
@@ -68,15 +110,15 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup>
-            <Button className="signUpButton" onClick={this.signUp}>
-              SIGN UP
-            </Button>
+              <Button className="signUpButton" onClick={this.signUp}>
+                SIGN UP
+              </Button>
             </FormGroup>
             <FormGroup>
-            <Link to="/login" className="signUpLink">
-              Already have an account?
-            </Link>
-          </FormGroup>
+              <Link to="/login" className="signUpLink">
+                Already have an account?
+              </Link>
+            </FormGroup>
           </Form>
         </Container>
       </div>

@@ -1,0 +1,13 @@
+.culturalPlacePage-background{
+    position: static;
+    background-image: url("../../images/card.jpg");
+    width: 100%;
+    height:100% ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.culturalPlacePage-background-black{
+    background-color: rgba(0, 0, 0, 0.602);
+    
+}
