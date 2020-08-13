@@ -1,3 +1,9 @@
 .navbar{
     height: 20%;
 }
+
+.tripify {
+    color: chocolate;
+    font-style: italic;
+    font-size: 35px;
+  }

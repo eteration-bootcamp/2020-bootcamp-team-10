@@ -23,18 +23,21 @@ class NavBar extends React.Component {
     }
     return (
       <div>
-        <Navbar color="dark" expand="md">
-          <Link to="/">Trip</Link>
+        <Navbar color="dark" light expand="md">
+          <Link className="tripify" to="/">
+            Tripify
+          </Link>
+
           <NavbarToggler />
+          <NavItem>
+            <Link to="/">About Us</Link>
+          </NavItem>
+          
+          <NavItem>
+            <Link to="/">GitHub</Link>
+          </NavItem>
           <Collapse navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <Link to="/">About Us</Link>
-              </NavItem>
-              <NavItem>
-                <Link to="/">GitHub</Link>
-              </NavItem>
-            </Nav>
+            <Nav className="mr-auto" navbar />
             {!loginData ? (
               <div>
                 <Nav>
