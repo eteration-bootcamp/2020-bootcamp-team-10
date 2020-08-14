@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -64,25 +58,25 @@ class NavBar extends React.Component {
                 </Nav>
               </div>
             ) : (
-                <div>
-                  <Nav className="logOutNav">
-                    <NavItem className="item">
-                      <Link
-                        className="link"
-                        to="/sign-up"
-                        onClick={this.onClickLogOut}
-                      >
-                        LogOut
+              <div>
+                <Nav className="logOutNav">
+                  <NavItem className="item">
+                    <Link
+                      className="link"
+                      to="/sign-up"
+                      onClick={this.onClickLogOut}
+                    >
+                      LogOut
                     </Link>
-                    </NavItem>
-                    <NavItem className="item">
-                      <Link className="link" to="/">
-                        LogOut
+                  </NavItem>
+                  <NavItem className="item">
+                    <Link className="link" to="/">
+                      LogOut
                     </Link>
-                    </NavItem>
-                  </Nav>
-                </div>
-              )}
+                  </NavItem>
+                </Nav>
+              </div>
+            )}
           </Collapse>
         </Navbar>
       </div>

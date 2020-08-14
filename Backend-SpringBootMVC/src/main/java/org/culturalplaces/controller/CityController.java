@@ -21,7 +21,6 @@ public class CityController {
 	@Autowired
 	private CityService cityService;
 	
-	
 	@RequestMapping(value = "/city/{id}", method = RequestMethod.GET)
 	public City findByCityId(@PathVariable("id") Long id) {
 		

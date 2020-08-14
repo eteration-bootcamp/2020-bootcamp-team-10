@@ -8,11 +8,12 @@ function* getDataWithId(id) {
   const options = {
     method: 'GET',
   };
+
+  console.log(id.id.id, 'id in saga');
   try {
     const response = yield call(
       request,
-      // `http://localhost:7007/application/city/:${id}`,
-      "http://localhost:7007/application/city/:1",
+      `http://localhost:7007/application/city/${id.id.id}`,
       options,
     );
     yield put(getDataWithIdSuccess(response));

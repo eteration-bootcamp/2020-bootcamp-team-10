@@ -3,8 +3,7 @@
  * DescriptionCard
  *
  */
-
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import {
@@ -20,39 +19,36 @@ import PhotoSlider from '../PhotoSlider';
 import './style.css';
 
 function DescriptionCard(props) {
-  
-  // const {
-  //   { match: { params } }
-  // } = props;
-  // console.log(params.id, 'Place Id')
-  // this.props.getDataWithId(params.id);
-
-  // const placeId = props.match.params;
-  console.log(props.match.params.id, 'place Id from URL');
   return (
     <div>
       <Card className="cardClass">
+      {console.log('---->',props.aPlaceData.aCulturalPlace.cityId,'------>City Id')}
         <PhotoSlider />
         <div className="info-container">
+          {
+            console.log('---->',props.aPlaceData.aCulturalPlace.cityId,'City Id')
+          }
           <CardBody>
             <CardTitle className="place-name">
-              {props.data.culturalPlace.culturalPlace}
+              {JSON.stringify(props.aPlaceData.aCulturalPlace.culturalPlaceName)}
             </CardTitle>
             <CardSubtitle className="place-city">
-              {props.data.culturalPlace.cityName}
+              {JSON.stringify(props.aPlaceData.aCulturalPlace.cityName)}
             </CardSubtitle>
           </CardBody>
           <CardBody>
             <CardText className="place-description">
-              {props.data.culturalPlace.cityDescription}
+              {JSON.stringify(props.aPlaceData.aCulturalPlace.cityDescription)}
             </CardText>
             <CardLink href="#">Card Link</CardLink>
             <CardLink href="#">Another Link</CardLink>
           </CardBody>
         </div>
-        <OSMap placeInfo={props.data.culturalPlace} />
+        <OSMap placeInfo={props.aPlaceData.aCulturalPlace} />
+        {console.log('---->',props.aPlaceData.aCulturalPlace.cityId,'------>City Id2')}
       </Card>
     </div>
+    
   );
 }
 

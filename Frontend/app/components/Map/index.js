@@ -16,6 +16,7 @@ export default class OSMap extends React.Component {
   }
 
   getData = () => {
+    console.log(this.props,'Map props')
     this.setState({ culturalData: [this.props.placeInfo] });
     console.log(this.props.placeInfo, 'placeInfo')
   };
@@ -40,7 +41,7 @@ export default class OSMap extends React.Component {
   render() {
     return (
       <Container>
-        <Row>
+        {/* <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Map
               center={[
@@ -85,11 +86,11 @@ export default class OSMap extends React.Component {
               )}
             </Map>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     );
   }
 }
-OSMap.propTypes = {
-  placeInfo: PropTypes.object,
-};
+// OSMap.propTypes = {
+//   placeInfo: PropTypes.array,
+// };

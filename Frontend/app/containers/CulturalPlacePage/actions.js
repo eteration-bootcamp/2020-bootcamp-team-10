@@ -17,16 +17,17 @@ export function defaultAction() {
   };
 }
 
-export function getDataWithId() {
+export function getDataWithId(id) {
   return {
     type: GET_DATA_WITH_ID,
+    id,
   };
 }
-export function getDataWithIdSuccess(id) {
-  console.log('getDataWithIdSuccess', id);
+export function getDataWithIdSuccess(placeInfo) {
+  console.log('getDataWithIdSuccess in actions', placeInfo);
   return {
     type: GET_DATA_WITH_ID_SUCCESS,
-    id,
+    placeInfo,
   };
 }
 export function getDataWithIdFailure(error) {

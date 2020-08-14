@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -29,17 +29,16 @@ export function CulturalPlacePage({
   culturalPlaceListPage,
   dispatch,
   culturalPlacePage,
+  match,
 }) {
   useInjectReducer({ key: 'culturalPlacePage', reducer });
   useInjectSaga({ key: 'culturalPlacePage', saga });
+  const culturalPlaceId = match.params;
+  useEffect(() => {
+    dispatch(getDataWithId(culturalPlaceId));
+  }, []);
 
-  // useEffect(() => {
-  //   // dispatch(getDataWithId('1'));
-  //   const { id } = props.params.cityId;
-
-  //   dispatch(getDataWithId(id));
-  // }, {});
-
+  // console.log(culturalPlacePage.aCulturalPlace, 'Cul place')
   return (
     <div className="culturalPlacePage-background">
       <div>
@@ -49,11 +48,12 @@ export function CulturalPlacePage({
         </Helmet>
         <Header authData={loginPage} />
         <div className="culturalPlacePage-background-black">
-          <DescriptionCard
-            // placeDataWithId={data => dispatch(getDataWithId(data))}
-            data={culturalPlaceListPage}
-            getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
-          />
+              <DescriptionCard
+                aPlaceData={culturalPlacePage}
+                // getPlaceData={data => dispatch(getDataWithId(data))}
+                data={culturalPlacePage.aCulturalPlace}
+                getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
+              />
         </div>
       </div>
     </div>
@@ -82,4 +82,7 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(CulturalPlacePage);
+export default compose(
+  withConnect,
+  memo,
+)(CulturalPlacePage);
