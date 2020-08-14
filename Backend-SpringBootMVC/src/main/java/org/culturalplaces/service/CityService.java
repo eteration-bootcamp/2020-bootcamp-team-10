@@ -36,9 +36,12 @@ public class CityService {
 		city.setCityId(maxId);
 		city.setCityName(cityContext.getCityName());
 		city.setCityDescription(cityContext.getCityDescription());
-		city.setCityPhoto(cityContext.getCityPhoto());
+		city.setCityPhoto1(cityContext.getCityPhoto1());
+		city.setCityPhoto2(cityContext.getCityPhoto2());
+		city.setCityPhoto3(cityContext.getCityPhoto3());
 		city.setCulturalPlace(cityContext.getCulturalPlace());
-		city.setCityCoordinates(cityContext.getCityCoordinates());
+		city.setCityCoordinatesX(cityContext.getCityCoordinatesX());
+		city.setCityCoordinatesY(cityContext.getCityCoordinatesY());
 		
 
 		city = cityRepository.save(city);

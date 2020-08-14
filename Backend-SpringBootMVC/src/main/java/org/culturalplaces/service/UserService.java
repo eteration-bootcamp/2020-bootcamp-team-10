@@ -1,37 +1,54 @@
 package org.culturalplaces.service;
 
-import java.util.Arrays;
+import java.util.List;
 
 import org.culturalplaces.dao.jpa.entity.User;
-import org.culturalplaces.dao.jpa.repository.RoleRepository;
 import org.culturalplaces.dao.jpa.repository.UserRepository;
+import org.culturalplaces.service.model.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    @Autowired
-    UserRepository userRepository;
 
-    @Autowired
-    RoleRepository roleRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+	public Long register(UserContext userContext) {
 
-    public User findByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
+		Long maxId = userRepository.findMaxId() + 1;
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
+		User user = new User();
+		user.setUserId(maxId);
+		user.setFirstName(userContext.getFirstName());
+		user.setLastName(userContext.getLastName());
+		user.setPassword(userContext.getPassword());
+		user.setUsername(userContext.getPassword());
 
-    public void saveUser(User user) {
-        user.setRoles(Arrays.asList(roleRepository.findByRole("USER")));
-        user.setEnabled(true);
-        userRepository.save(user);
-    }
+		user = userRepository.save(user);
+
+		return user.getUserId();
+	}
+
+	public List<User> findByUserName(String username) {
+		return userRepository.findByUserName(username);
+	}
+
+	public boolean validate(String username, String password) {
+		
+		UserContext userContext = new UserContext();
+		
+		username = userContext.getUsername();
+		String password1 = userContext.getPassword();
+
+		if ( username != null && password1.equals(password)) {
+			return true;
+		} else {
+			System.out.println("Geçersiz kullanıcı veya şifre");
+
+			return false;
+		}
+
+	}
+
 }
