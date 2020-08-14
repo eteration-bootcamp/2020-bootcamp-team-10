@@ -6,12 +6,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @ComponentScan(basePackages = {
+		"org.culturalplaces",
 		"org.culturalplaces.service",
 		"org.culturalplaces.service.model",
 		"org.culturalplaces.controller",
 		"org.culturalplaces.dao.jpa.entity",
-		"org.culturalplaces.dao.jpa.repository",
-		"org.culturalplaces.config"})
+		"org.culturalplaces.dao.jpa.repository"})
 
 @SpringBootApplication
 public class Application {
