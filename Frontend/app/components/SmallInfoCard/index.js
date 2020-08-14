@@ -49,7 +49,7 @@ class SmallInfoCard extends React.Component {
             onClick={() => this.onClickButton(this.props.placeListData)}
           >
             <Link to={`/cultural-place/${this.props.placeListData.cityId}`}>
-              Button
+              <span className="button-text">Learn more..</span>
             </Link>
           </ButtonToggle>
         </CardBody>

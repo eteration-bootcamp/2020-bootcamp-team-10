@@ -26,7 +26,7 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
   useInjectSaga({ key: 'culturalPlacesListPage', saga });
 
   return (
-    <div>
+    <div className="list-background">
       <Helmet>
         <title>CulturalPlacesListPage</title>
         <meta

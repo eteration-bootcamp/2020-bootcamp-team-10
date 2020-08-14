@@ -1,11 +1,14 @@
 .smallInfoCard {
-    background-color: #D5F5E3;
+    background-color: rgba(0, 0, 0, 0.571) ;
+    box-shadow: 5px 5px 5px #aaaaaa54;
+    font-size: 18px;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
     width: 500px;
     color: chocolate;
+    border-radius: 25px;
 }
 .smallInfoCardTitle {
     font-size: 25px;
@@ -19,4 +22,5 @@
 .cardButton {
     background-color: chocolate;
     color: #D5F5E3;
+    border-radius: 25px;
 }
