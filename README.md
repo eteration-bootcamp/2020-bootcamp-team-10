@@ -7,8 +7,8 @@
 |--------------------|-----------|
 | Backend Developer  | A. Yavuz ORUÇ  |
 | xxxxxxxx Developer | İsmail   |
-| xxxxxxxx Developer | Derya  |
-| xxxxxxxx Developer | Ahmet  |
+| Frontend Developer | Derya  |
+| Frontend Developer | Ahmet  |
 | xxxxxxxx Developer | AhmetCan  |
 | xxxxxxxx Developer | Ayşe  |
 
