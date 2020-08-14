@@ -15,12 +15,6 @@ export default class OSMap extends React.Component {
     this.setState({ placePoint: place });
   }
 
-  getData = () => {
-    console.log(this.props,'Map props')
-    this.setState({ culturalData: [this.props.placeInfo] });
-    console.log(this.props.placeInfo, 'placeInfo')
-  };
-
   splitValue(value) {
     if (value !== undefined) {
       let splitStep1 = value.split('[');
@@ -34,14 +28,10 @@ export default class OSMap extends React.Component {
     return [0, 0];
   }
 
-  componentDidMount() {
-    this.getData();
-  }
-
   render() {
     return (
       <Container>
-        {/* <Row>
+        <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Map
               center={[
@@ -54,43 +44,41 @@ export default class OSMap extends React.Component {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               />
-              {this.state.culturalData &&
-                this.state.culturalData.map(place => (
-                  <Marker
-                    key={place.cityId}
-                    position={[
-                      this.splitValue(place.cityCoordinates)[0],
-                      this.splitValue(place.cityCoordinates)[1],
-                    ]}
-                    onClick={() => {
-                      this.setPlacePoint(place);
-                    }}
-                  />
-                ))}
+
+              <Marker
+                key={this.props.placeInfo.cityId}
+                position={[
+                  this.splitValue(this.props.placeInfo.cityCoordinates)[0],
+                  this.splitValue(this.props.placeInfo.cityCoordinates)[1],
+                ]}
+                onClick={() => {
+                  this.setPlacePoint(this.props.placeInfo);
+                }}
+              />
 
               {this.state.placePoint && (
                 <Popup
                   position={[
-                    this.splitValue(this.state.placePoint.cityCoordinates)[0],
-                    this.splitValue(this.state.placePoint.cityCoordinates)[1],
+                    this.splitValue(this.props.placeInfo.cityCoordinates)[0],
+                    this.splitValue(this.props.placeInfo.cityCoordinates)[1],
                   ]}
                   onClose={() => {
                     this.setPlacePoint(null);
                   }}
                 >
                   <div>
-                    <h2>{this.state.placePoint.culturalPlace}</h2>
-                    <p>{this.state.placePoint.cityName}</p>
+                    <h2>{this.props.placeInfo.culturalPlace}</h2>
+                    <p>{this.props.placeInfo.cityName}</p>
                   </div>
                 </Popup>
               )}
             </Map>
           </Col>
-        </Row> */}
+        </Row>
       </Container>
     );
   }
 }
-// OSMap.propTypes = {
-//   placeInfo: PropTypes.array,
-// };
+OSMap.propTypes = {
+  placeInfo: PropTypes.object.isRequired,
+};

@@ -38,6 +38,8 @@ class CulturalPlaceList extends React.Component {
 }
 
 CulturalPlaceList.propTypes = {
+  data: PropTypes.object,
+  setFilterData: PropTypes.func,
   noFoundMessage: PropTypes.string,
   undefinedMessage: PropTypes.string,
 };

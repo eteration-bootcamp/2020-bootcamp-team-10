@@ -36,9 +36,12 @@ public class CityService {
 		city.setCityId(maxId);
 		city.setCityName(cityContext.getCityName());
 		city.setCityDescription(cityContext.getCityDescription());
-		city.setCityPhoto(cityContext.getCityPhoto());
+		city.setCityPhoto1(cityContext.getCityPhoto1());
+		city.setCityPhoto2(cityContext.getCityPhoto2());
+		city.setCityPhoto3(cityContext.getCityPhoto3());
 		city.setCulturalPlace(cityContext.getCulturalPlace());
-		city.setCityCoordinates(cityContext.getCityCoordinates());
+		city.setCityCoordinatesX(cityContext.getCityCoordinatesX());
+		city.setCityCoordinatesY(cityContext.getCityCoordinatesY());
 		
 
 		city = cityRepository.save(city);
@@ -46,24 +49,21 @@ public class CityService {
 		
 		return city.getCityId();
 	}
-	
-	public List<City> searchBy(String cityName) {
 
-		List<City> result = null;
-		
-			result = cityRepository.findByCityName(cityName);
-		
-		return result;
+	
+	public List<City> findByCityName(String cityName) {
+		return cityRepository.findByCityName(cityName);
 	}
 	
-	public List<City> searchByCulturalPlaceName (String culturalPlace) {
-
-		List<City> result = null;
-		
-			result = cityRepository.findByCulturalPlaceName(culturalPlace);
-		
-		return result;
+	public List<City> findByCulturalPlaceName(String culturalPlace) {
+		return cityRepository.findByCulturalPlaceName(culturalPlace);
 	}
-	
+
+	@Transactional
+	public void delete(Long cityId) {
+		if(cityRepository.findWithCityId(cityId)!= null) {
+			cityRepository.deleteById(cityId);
+		}
+	}
 
 }

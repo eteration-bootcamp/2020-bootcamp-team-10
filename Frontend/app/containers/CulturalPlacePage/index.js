@@ -18,7 +18,6 @@ import reducer from './reducer';
 import saga from './saga';
 import Header from '../../components/Header';
 import DescriptionCard from '../../components/DescriptionCard';
-import makeSelectCulturalPlacesListPage from '../CulturalPlacesListPage/selectors';
 import makeSelectLoginPage from '../LoginPage/selectors';
 import { getCulturalPlaceData } from '../CulturalPlacesListPage/actions';
 import { getDataWithId } from './actions';
@@ -26,7 +25,6 @@ import './style.css';
 
 export function CulturalPlacePage({
   loginPage,
-  culturalPlaceListPage,
   dispatch,
   culturalPlacePage,
   match,
@@ -48,12 +46,12 @@ export function CulturalPlacePage({
         </Helmet>
         <Header authData={loginPage} />
         <div className="culturalPlacePage-background-black">
-              <DescriptionCard
-                aPlaceData={culturalPlacePage}
-                // getPlaceData={data => dispatch(getDataWithId(data))}
-                data={culturalPlacePage.aCulturalPlace}
-                getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
-              />
+          <DescriptionCard
+            aPlaceData={culturalPlacePage}
+            // getPlaceData={data => dispatch(getDataWithId(data))}
+            data={culturalPlacePage.aCulturalPlace}
+            getCulturalPlaceData={data => dispatch(getCulturalPlaceData(data))}
+          />
         </div>
       </div>
     </div>
@@ -63,11 +61,13 @@ export function CulturalPlacePage({
 CulturalPlacePage.propTypes = {
   // eslint-disable-next-line react/no-unused-prop-types
   dispatch: PropTypes.func.isRequired,
+  loginPage: PropTypes.object,
+  match: PropTypes.object,
+  culturalPlacePage: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   culturalPlacePage: makeSelectCulturalPlacePage(),
-  culturalPlaceListPage: makeSelectCulturalPlacesListPage(),
   loginPage: makeSelectLoginPage(),
 });
 
