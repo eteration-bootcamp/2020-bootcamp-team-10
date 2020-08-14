@@ -56,38 +56,24 @@
             CREATE TABLE `city` (
             `city_id` int(11) NOT NULL,
             `city_name` varchar(30) NOT NULL,
-            `city_description` varchar(30) NOT NULL,
-            `city_photo` varchar(30) NOT NULL,
+            `city_description` varchar(1500) NOT NULL,
+            `city_photo1` varchar(30) NOT NULL,
+            `city_photo2` varchar(30) ,
+            `city_photo3` varchar(30) ,
             `cultural_place` varchar(30) NOT NULL,
-            `city_coordinates` varchar(30) NOT NULL,
-            PRIMARY KEY (`city_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            `city_coordinatesX` varchar(30) NOT NULL,
+            `city_coordinatesY` varchar(30) NOT NULL,
+             PRIMARY KEY (`city_id`)
+             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-           CREATE TABLE user (
-           user_id      INT             NOT NULL,
-           email  VARCHAR(16)            NOT NULL,
-           password  VARCHAR(14)     NOT NULL,
-           first_name  VARCHAR(14)     NOT NULL,
-           last_name   VARCHAR(16)     NOT NULL,
-           enabled      BOOLEAN  NOT NULL,    
-           username   VARCHAR(16)     NOT NULL,
-           PRIMARY KEY (user_id)
-            );
-
-          CREATE TABLE role (
-          role_id     CHAR(4)         NOT NULL,
-          role_type   VARCHAR(40)     NOT NULL,
-          PRIMARY KEY (role_id),
-          UNIQUE  KEY (role_type)
-          );
-
-          CREATE TABLE role_user (
-          user_id     INT             NOT NULL,
-          role_id     CHAR(4)         NOT NULL,
-          FOREIGN KEY (user_id)  REFERENCES user   (user_id)  ON DELETE CASCADE,
-          FOREIGN KEY (role_id) REFERENCES role (role_id) ON DELETE CASCADE,
-          PRIMARY KEY (user_id,role_id)
-          );
+           CREATE TABLE `user` (
+            `user_id` int(11) NOT NULL,
+            `first_name` varchar(20) DEFAULT NULL,
+            `last_name` varchar(20) DEFAULT NULL,
+            `username` varchar(250) DEFAULT NULL,
+            `password` varchar(20) DEFAULT NULL,
+            PRIMARY KEY (`user_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
       
       
       **If you want to ask question, you can write on discord.
