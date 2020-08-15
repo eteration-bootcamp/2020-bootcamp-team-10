@@ -7,6 +7,7 @@ import org.culturalplaces.dao.jpa.repository.UserRepository;
 import org.culturalplaces.service.model.UserContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -14,6 +15,18 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	public User findByUserId(Long userId) {
+
+		return userRepository.findWithUserId(userId);
+	}
+	
+
+	public List<User> getAllUserList() {
+
+		return userRepository.getAllUserList();
+	}
+	
+	@Transactional
 	public Long register(UserContext userContext) {
 
 		Long maxId = userRepository.findMaxId() + 1;
@@ -22,33 +35,28 @@ public class UserService {
 		user.setUserId(maxId);
 		user.setFirstName(userContext.getFirstName());
 		user.setLastName(userContext.getLastName());
+		user.setUsername(userContext.getUsername());
 		user.setPassword(userContext.getPassword());
-		user.setUsername(userContext.getPassword());
+		
 
 		user = userRepository.save(user);
 
 		return user.getUserId();
 	}
+	
 
 	public List<User> findByUserName(String username) {
 		return userRepository.findByUserName(username);
 	}
 
-	public boolean validate(String username, String password) {
+	public boolean login(String username, String password) {
 		
-		UserContext userContext = new UserContext();
-		
-		username = userContext.getUsername();
-		String password1 = userContext.getPassword();
-
-		if ( username != null && password1.equals(password)) {
+		if( userRepository.findByUserName(username)!= null &&  userRepository.findByPassword(password) != null) {
 			return true;
-		} else {
-			System.out.println("Geçersiz kullanıcı veya şifre");
-
+		}else {
+			System.out.println("Kullanıcı veya şifre geçersiz");
 			return false;
 		}
-
 	}
 
 }
