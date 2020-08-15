@@ -23,6 +23,7 @@ const homePageReducer = (state = initialState, action) =>
         break;
       case GET_ALL_DATA_SUCCESS:
         state.culturalPlaces = action.data;
+        state.filteredPlaces = action.data;
         break;
       case SET_FILTERED_SEARCH_DATA_SUCCESS:
         state.filteredPlaces = action.filteredData;

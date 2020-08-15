@@ -20,6 +20,7 @@ import reducer from './reducer';
 import saga from './saga';
 import Navbar from '../../components/Header';
 import CulturalPlaceList from '../../components/CulturalPlaceList';
+import './style.css';
 
 export function CulturalPlacesListPage({ homePage, dispatch }) {
   useInjectReducer({ key: 'culturalPlacesListPage', reducer });
@@ -27,6 +28,7 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
 
   return (
     <div className="list-background">
+      <div>
       <Helmet>
         <title>CulturalPlacesListPage</title>
         <meta
@@ -39,6 +41,7 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
         data={homePage}
         setFilterData={data => dispatch(getCulturalPlaceDataSuccess(data))}
       />
+      </div>
     </div>
   );
 }

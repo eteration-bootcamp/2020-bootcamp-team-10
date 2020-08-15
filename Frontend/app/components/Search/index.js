@@ -53,7 +53,7 @@ export default class Search extends React.Component {
             .includes(searchString.toLowerCase()),
         );
       } else {
-        responseData = [];
+        responseData = this.props.data.culturalPlaces;
       }
       this.props.setFilterData(responseData);
       return { responseData };

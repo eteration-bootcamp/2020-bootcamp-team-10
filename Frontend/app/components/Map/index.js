@@ -15,17 +15,11 @@ export default class OSMap extends React.Component {
     this.setState({ placePoint: place });
   }
 
-  splitValue(value) {
+  coordinateParseFloat(value) {
     if (value !== undefined) {
-      let splitStep1 = value.split('[');
-      splitStep1 = splitStep1[1].split(']');
-      const coordinatesArr = splitStep1[0].split(',');
-      return [
-        parseFloat(coordinatesArr[1], 10),
-        parseFloat(coordinatesArr[0], 10),
-      ];
+      return parseFloat(value, 10)
     }
-    return [0, 0];
+    return 0;
   }
 
   render() {
@@ -35,10 +29,10 @@ export default class OSMap extends React.Component {
           <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Map
               center={[
-                this.splitValue(this.props.placeInfo.cityCoordinates)[0],
-                this.splitValue(this.props.placeInfo.cityCoordinates)[1],
+                this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
+                this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
               ]}
-              zoom={12}
+              zoom={15}
             >
               <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -48,8 +42,8 @@ export default class OSMap extends React.Component {
               <Marker
                 key={this.props.placeInfo.cityId}
                 position={[
-                  this.splitValue(this.props.placeInfo.cityCoordinates)[0],
-                  this.splitValue(this.props.placeInfo.cityCoordinates)[1],
+                  this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
+                  this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
                 ]}
                 onClick={() => {
                   this.setPlacePoint(this.props.placeInfo);
@@ -59,8 +53,8 @@ export default class OSMap extends React.Component {
               {this.state.placePoint && (
                 <Popup
                   position={[
-                    this.splitValue(this.props.placeInfo.cityCoordinates)[0],
-                    this.splitValue(this.props.placeInfo.cityCoordinates)[1],
+                    this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
+                    this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
                   ]}
                   onClose={() => {
                     this.setPlacePoint(null);

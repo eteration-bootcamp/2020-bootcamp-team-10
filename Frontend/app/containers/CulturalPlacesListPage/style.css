@@ -1,5 +1,9 @@
 .list-background{
-    background-image: url("../../images/main.jpg");
+    position: static;
+    background-image: url("../../images/list3.jpg");
+    width: 100%;
+    height:100%;
     background-repeat: no-repeat;
     background-size: cover;
+   
 }

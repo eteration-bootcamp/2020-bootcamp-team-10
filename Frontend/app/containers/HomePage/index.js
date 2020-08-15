@@ -20,6 +20,7 @@ import saga from './saga';
 import { getAllData, setFilteredSearchDataSuccess } from './actions';
 import Header from '../../components/Header';
 import Search from '../../components/Search';
+import CommentMain from '../../components/Comment';
 import './style.css';
 
 export function HomePage({ homePage, dispatch }) {
@@ -38,6 +39,7 @@ export function HomePage({ homePage, dispatch }) {
           data={homePage}
           setFilterData={data => dispatch(setFilteredSearchDataSuccess(data))}
         />
+        <CommentMain />
       </div>
     </>
   );

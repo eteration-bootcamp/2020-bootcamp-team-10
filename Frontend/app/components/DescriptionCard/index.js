@@ -15,25 +15,25 @@ function DescriptionCard(props) {
   return (
     <div>
       <Card className="cardClass">
-        <PhotoSlider />
+        <PhotoSlider placeData={props.aPlaceData.aCulturalPlace} />
         <div className="info-container">
           <CardBody>
             <CardTitle className="place-name">
-              {JSON.stringify(
-                props.aPlaceData.aCulturalPlace.culturalPlaceName,
-              )}
+              {props.aPlaceData.aCulturalPlace.culturalPlace}
             </CardTitle>
             <CardSubtitle className="place-city">
-              {JSON.stringify(props.aPlaceData.aCulturalPlace.cityName)}
+              {props.aPlaceData.aCulturalPlace.cityName}
             </CardSubtitle>
           </CardBody>
           <CardBody>
             <CardText className="place-description">
-              {JSON.stringify(props.aPlaceData.aCulturalPlace.cityDescription)}
+              {props.aPlaceData.aCulturalPlace.cityDescription}
             </CardText>
           </CardBody>
         </div>
-        <OSMap placeInfo={props.aPlaceData.aCulturalPlace} />
+        <div>
+          <OSMap placeInfo={props.aPlaceData.aCulturalPlace} />
+        </div>
       </Card>
     </div>
   );

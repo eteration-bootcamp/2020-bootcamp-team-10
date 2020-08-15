@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for SmallInfoCard
+ * Asynchronously loads the component for Comment
  *
  */
 

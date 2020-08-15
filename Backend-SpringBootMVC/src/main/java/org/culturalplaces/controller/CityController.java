@@ -6,6 +6,7 @@ import org.culturalplaces.dao.jpa.entity.City;
 import org.culturalplaces.service.CityService;
 import org.culturalplaces.service.model.CityContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/application")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CityController {
 
 	@Autowired

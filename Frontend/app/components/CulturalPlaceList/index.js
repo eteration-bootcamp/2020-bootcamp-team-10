@@ -6,9 +6,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Col, Row, CardDeck } from 'reactstrap';
 import SmallInfoCard from '../SmallInfoCard';
-
-// import styled from 'styled-components';
+import './style.css';
+import SmallCardGrid from './SmallCardGrid';
+// import styled from 'styl./SmallCardGrid
 // eslint-disable-next-line react/prefer-stateless-function
 class CulturalPlaceList extends React.Component {
   render() {
@@ -21,19 +23,33 @@ class CulturalPlaceList extends React.Component {
     } else {
       result = (
         <div>
+          <div>
+            <SmallCardGrid
+              placeData={this.props.data.filteredPlaces}
+              setFilterData={data => this.props.setFilterData(data)}
+            />
+          </div>
           {this.props.data.filteredPlaces.map((place, i) => (
             <div key={i}>
-              <SmallInfoCard
-                placeListData={place}
-                setFilterData={data => this.props.setFilterData(data)}
-              />
+              {/* <CardDeck>
+                <SmallInfoCard
+                  placeListData={place}
+                  setFilterData={data => this.props.setFilterData(data)}
+                />
+              </CardDeck> */}
+              <div className="parent">
+                {/* <SmallInfoCard
+                  placeListData={place}
+                  setFilterData={data => this.props.setFilterData(data)}
+                /> */}
+              </div>
             </div>
           ))}
         </div>
       );
     }
 
-    return <div>{result}</div>;
+    return <div className="resultClass">{result}</div>;
   }
 }
 

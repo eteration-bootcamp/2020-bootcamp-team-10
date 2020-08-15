@@ -1,6 +1,6 @@
 /**
  *
- * Tests for SmallInfoCard
+ * Tests for Comment
  *
  * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
  *
@@ -8,14 +8,20 @@
 
 import React from 'react';
 import { render } from 'react-testing-library';
+import { IntlProvider } from 'react-intl';
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import SmallInfoCard from '../index';
+import Comment from '../index';
+import { DEFAULT_LOCALE } from '../../../i18n';
 
-describe('<SmallInfoCard />', () => {
+describe('<Comment />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    render(<SmallInfoCard />);
+    render(
+      <IntlProvider locale={DEFAULT_LOCALE}>
+        <Comment />
+      </IntlProvider>,
+    );
     expect(spy).not.toHaveBeenCalled();
   });
 
@@ -31,7 +37,11 @@ describe('<SmallInfoCard />', () => {
   it.skip('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<SmallInfoCard />);
+    } = render(
+      <IntlProvider locale={DEFAULT_LOCALE}>
+        <Comment />
+      </IntlProvider>,
+    );
     expect(firstChild).toMatchSnapshot();
   });
 });
