@@ -6,9 +6,10 @@
 | Role               | Name      |
 |--------------------|-----------|
 | Backend Developer  | A. Yavuz ORUÇ  |
-| xxxxxxxx Developer | İsmail   |
 | Frontend Developer | Derya  |
 | Frontend Developer | Ahmet  |
+
+| xxxxxxxx Developer | İsmail   |
 | xxxxxxxx Developer | AhmetCan  |
 | xxxxxxxx Developer | Ayşe  |
 
@@ -67,13 +68,13 @@
              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
            CREATE TABLE `user` (
-            `user_id` int(11) NOT NULL,
-            `first_name` varchar(20) DEFAULT NULL,
-            `last_name` varchar(20) DEFAULT NULL,
-            `username` varchar(250) DEFAULT NULL,
-            `password` varchar(20) DEFAULT NULL,
-            PRIMARY KEY (`user_id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+          `user_id` int(11) NOT NULL,
+          `first_name` varchar(20) DEFAULT NULL,
+          `last_name` varchar(20) DEFAULT NULL,
+          `username` varchar(250) DEFAULT NULL,
+          `password` varchar(20) DEFAULT NULL,
+           PRIMARY KEY (`user_id`)
+           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
       
       
       **If you want to ask question, you can write on discord.
