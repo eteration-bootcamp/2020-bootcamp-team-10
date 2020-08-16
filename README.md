@@ -5,7 +5,7 @@
 
 | Role               | Name      |
 |--------------------|-----------|
-| Backend Developer  | A. Yavuz ORUÇ  |
+| Backend Developer, DB Architecture and QA(Test Developer)  | A. Yavuz ORUÇ  |
 | Frontend Developer | Derya  |
 | Frontend Developer | Ahmet  |
 
