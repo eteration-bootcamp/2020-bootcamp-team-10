@@ -1,5 +1,14 @@
 import React from 'react';
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  Button,
+  ButtonToggle,
+  CardLink,
+} from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -29,18 +38,7 @@ class NavBar extends React.Component {
           </Link>
           <NavbarToggler />
           <Collapse navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem className="item">
-                <Link className="link" to="/">
-                  About Us
-                </Link>
-              </NavItem>
-              <NavItem className="item">
-                <Link className="link" to="/">
-                  GitHub
-                </Link>
-              </NavItem>
-            </Nav>
+            <Nav className="mr-auto" navbar />
             {!loginData ? (
               <div>
                 <Nav className="loginNav">
@@ -63,14 +61,9 @@ class NavBar extends React.Component {
                   <NavItem className="item">
                     <Link
                       className="link"
-                      to="/sign-up"
+                      to="/login"
                       onClick={this.onClickLogOut}
                     >
-                      LogOut
-                    </Link>
-                  </NavItem>
-                  <NavItem className="item">
-                    <Link className="link" to="/">
                       LogOut
                     </Link>
                   </NavItem>

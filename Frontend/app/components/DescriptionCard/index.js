@@ -5,7 +5,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import OSMap from '../Map';
 import PhotoSlider from '../PhotoSlider';

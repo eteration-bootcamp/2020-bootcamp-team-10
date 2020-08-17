@@ -1,11 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import Paper from '@material-ui/core/Paper';
 import {
   Card,
   CardImg,
@@ -40,8 +35,6 @@ export default function SmallCardGrid(props) {
 
   return (
     <Grid container className={classes.root} spacing={2}>
-      {console.log(props.placeData, '-----------Place Data y')}
-      {console.log(typeof [props.placeData], '-----------Place Data y')}
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
           {props.placeData.map(value => (
@@ -68,10 +61,7 @@ export default function SmallCardGrid(props) {
                       <CardText className="smallInfoCardDescription">
                         {value.cityDescription}
                       </CardText>
-                      <ButtonToggle
-                        className="cardButton"
-                        onClick={() => this.onClickButton(value)}
-                      >
+                      <ButtonToggle className="cardButton">
                         <Link to={`/cultural-place/${value.cityId}`}>
                           <span className="button-text">Learn more..</span>
                         </Link>

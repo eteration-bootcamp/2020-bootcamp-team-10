@@ -7,9 +7,13 @@
 .item {
     padding-left: 15px;
 }
-.item:hover {
+.item-card {
+  flex: 1;
+}
+/* .item:hover {
     font-size: 35px;
-  }
+    color: black;
+  } */
 .link{
     color: chocolate;
     font-size: 20px;
@@ -40,4 +44,14 @@
   .icon {
       width:10%;
       height:10%;
+  }
+
+  .nav-button{
+    color: chocolate;
+  }
+
+  .nav-button-text{
+    /* color: chocolate; */
+    text-decoration: none !important;
+    font-size: 25px;
   }

@@ -9,33 +9,49 @@ import {
   Container,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import fire from '../../config/fire';
 import './style.css';
 
 class SignUpForm extends Component {
-  signUp() {
-    const email = document.querySelector('#email').value;
-    const password = document.querySelector('#password').value;
+  constructor(props) {
+    super(props);
+    this.signUp = this.signUp.bind(this);
+    this.state = {
+      userInfo: {},
+    };
+  }
 
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(u => {
-        console.log('success');
-      })
-      .catch(error => {
-        console.log(error);
+  signUp(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    console.log(typeof data.get('password'));
+    const reqBody = JSON.stringify({
+      firstName: data.get('name'),
+      lastName: data.get('surname'),
+      username: data.get('username'),
+      password: data.get('password'),
+    });
+    console.log(reqBody);
+    try {
+      fetch('http://localhost:7007/application/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+      },
+        body: reqBody,
       });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
     return (
       <div className="signUp">
         <Container className="signUpContainer">
-          <Form>
+          <Form onSubmit={this.signUp}>
             <FormGroup>
               <Col sm={8} md={{ size: 6, offset: 4 }}>
-                <Label className="headerLabel">Sign up to</Label>
+                <Label className="headerLabel">Sign Up to</Label>
                 <Label className="tripify">Tripify</Label>
               </Col>
             </FormGroup>
@@ -45,11 +61,12 @@ class SignUpForm extends Component {
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>
                 <Input
-                  type="name"
+                  type="text"
                   name="name"
                   id="name"
                   placeholder="Name"
                   className="naemInputBox"
+                  value={this.state.name}
                 />
               </Col>
             </FormGroup>
@@ -59,11 +76,12 @@ class SignUpForm extends Component {
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>
                 <Input
-                  type="surname"
+                  type="text"
                   name="surname"
                   id="surname"
                   placeholder="Surname"
                   className="surnameInputBox"
+                  value={this.state.surname}
                 />
               </Col>
             </FormGroup>
@@ -78,6 +96,7 @@ class SignUpForm extends Component {
                   id="username"
                   placeholder="Username"
                   className="UsernameInputBox"
+                  value={this.state.username}
                 />
               </Col>
             </FormGroup>
@@ -92,6 +111,7 @@ class SignUpForm extends Component {
                   id="email"
                   placeholder="E-mail address"
                   className="emailInputBox"
+                  value={this.state.email}
                 />
               </Col>
             </FormGroup>
@@ -106,13 +126,14 @@ class SignUpForm extends Component {
                   id="password"
                   placeholder="Password"
                   className="passwordInputBox"
+                  value={this.state.password}
                 />
               </Col>
             </FormGroup>
             <FormGroup>
-              <Button className="signUpButton" onClick={this.signUp}>
-                SIGN UP
-              </Button>
+            <Link to="/login" className="signUpLink">
+              <Button className="signUpButton">SIGN UP</Button>
+              </Link>
             </FormGroup>
             <FormGroup>
               <Link to="/login" className="signUpLink">

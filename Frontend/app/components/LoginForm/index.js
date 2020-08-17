@@ -9,22 +9,22 @@ import {
   Input,
   Container,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import fire from '../../config/fire';
+import { Redirect, Link } from 'react-router-dom';
+import history from '../../containers/App/history';
+
 import './style.css';
 import { setAuthentication } from '../../containers/LoginPage/actions';
-import { setLogLevel } from 'firebase';
-// import styled from 'styled-components';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
+    this.signIn = this.signIn.bind(this);
     this.state = {
       userInfo: {},
     };
     this.checkLogin = this.checkLogin.bind(this);
+    this.redirectToHome = this.redirectToHome.bind(this);
   }
-
 
   checkLogin(userInfo) {
     if (userInfo.additionalUserInfo.operationType === 'signIn') {
@@ -32,31 +32,43 @@ export default class LoginForm extends React.Component {
     }
   }
 
-  signIn() {
-    const email = document.querySelector('#email').value;
-    const password = document.querySelector('#password').value;
-    const self = this;
-    fire
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(u => {
-        console.log('success');
-        console.log(this.props.setAuth(true), 'isLoggedIn');
-        console.log(this.state.isLogin, 'isLogin');
+  redirectToHome() {
+    if (this.props.userInfo.isLoggedIn) {
+      history.push('/');
+    }
+  }
+
+  signIn(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const reqBody = JSON.stringify({
+      email: data.get('username'),
+      password: data.get('password'),
+    });
+    try {
+      fetch('http://localhost:7007/application/login', {
+        method: 'POST',
+        body: reqBody,
       })
-
-      .catch(error => {
-        console.log(error);
-      });
-
+        .then(response => response.json())
+        .then(data => this.props.setAuth(data))
+        .then(data => this.redirectToHome());
+      console.log(history, 'history----');
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(this.props.userInfo.isLoggedIn);
   }
 
   render() {
-    console.log(this.props.setAuth(true))
+    // console.log('----> is logged in', this.props.userInfo.isLoggedIn);
+    // if (this.props.userInfo.isLoggedIn == true) {
+    //   return <Redirect to="/" />;
+    // }
     return (
       <div className="login">
         <Container className="loginContainer">
-          <Form>
+          <Form onSubmit={this.signIn}>
             <FormGroup>
               <Col sm={8} md={{ size: 6, offset: 4 }}>
                 <Label className="headerLabel">Login to</Label>
@@ -65,15 +77,16 @@ export default class LoginForm extends React.Component {
             </FormGroup>
             <FormGroup row>
               <Label for="email" className="email" sm={2}>
-                E-mail:
+                Username:
               </Label>
               <Col sm={8} md={{ size: 6, offset: 1 }}>
                 <Input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="E-mail address"
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
                   className="emailInputBox"
+                  value={this.state.username}
                 />
               </Col>
             </FormGroup>
@@ -88,13 +101,12 @@ export default class LoginForm extends React.Component {
                   id="password"
                   placeholder="Password"
                   className="passwordInputBox"
+                  value={this.state.password}
                 />
               </Col>
             </FormGroup>
             <FormGroup>
-              <Button className="loginButton" onClick={this.signIn}>
-                LOGIN
-              </Button>
+              <Button className="loginButton">LOGIN</Button>
             </FormGroup>
             <FormGroup>
               <Link className="loginLink" to="/sign-up">
