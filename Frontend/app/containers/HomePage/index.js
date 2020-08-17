@@ -39,7 +39,7 @@ export function HomePage({ homePage, dispatch }) {
           data={homePage}
           setFilterData={data => dispatch(setFilteredSearchDataSuccess(data))}
         />
-        <CommentMain />
+        {/* <CommentMain /> */}
       </div>
     </>
   );

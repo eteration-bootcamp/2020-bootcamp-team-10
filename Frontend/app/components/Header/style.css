@@ -7,6 +7,7 @@
 .item {
     padding-left: 15px;
 }
+
 .item-card {
   flex: 1;
 }
@@ -18,6 +19,11 @@
     color: chocolate;
     font-size: 20px;
 }
+.link:hover{
+  color: chocolate;
+  text-decoration: none;
+  color: rgb(255,255,255,0.7);
+}
 .header {
     color: chocolate;
     font-style: italic;
@@ -25,6 +31,10 @@
     font-weight: bold;
     
     font-family: 'Times New Roman', Times, serif;
+}
+.header:hover{
+  color: chocolate;
+  text-decoration: none;
 }
 
 .tripify {

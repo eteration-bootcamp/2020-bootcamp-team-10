@@ -1,0 +1,44 @@
+.card-container{
+    padding-top:6%;
+    width:500px;
+    height: 575px;
+    padding-left:3%;
+    padding-right:3%;
+}
+
+.smallInfoCard{
+    width:100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color:rgba(0, 0, 0, 0.644) ;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;;
+}
+
+.card-photo-container{
+    padding-left:3%;
+    padding-right:3%;
+    padding-top:3%;
+}
+
+.cardimage{
+    border-style: solid;
+    border-radius: 25px;
+    
+   
+}
+
+.smallInfoCardDescription{
+    color: rgb(255,255,255,0.7);
+}
+
+.smallInfoCardTitle{
+    color: chocolate;
+    font-size:22px;
+  
+}
+
+.smallInfoCardSubTitle{
+    color: rgb(255,255,255,0.7);
+}

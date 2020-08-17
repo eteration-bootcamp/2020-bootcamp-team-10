@@ -59,7 +59,8 @@ export default function SmallCardGrid(props) {
                         {value.cityName}
                       </CardSubtitle>
                       <CardText className="smallInfoCardDescription">
-                        {value.cityDescription}
+                        {value.cityDescription.substring(0, 260)}...
+                        {console.log(value.cityDescription)}
                       </CardText>
                       <ButtonToggle className="cardButton">
                         <Link to={`/cultural-place/${value.cityId}`}>

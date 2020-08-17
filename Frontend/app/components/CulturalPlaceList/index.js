@@ -27,7 +27,6 @@ class CulturalPlaceList extends React.Component {
               setFilterData={data => this.props.setFilterData(data)}
             />
           </div>
-          ))}
         </div>
       );
     }
