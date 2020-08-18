@@ -27,7 +27,6 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
   useInjectSaga({ key: 'culturalPlacesListPage', saga });
 
   return (
-    <body>
     <div className="list-background">
       <div className="place-list-container">
         <Helmet>
@@ -44,7 +43,6 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
         />
       </div>
     </div>
-    </body>
   );
 }
 

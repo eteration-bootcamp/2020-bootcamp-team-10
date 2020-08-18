@@ -17,7 +17,7 @@ export default class OSMap extends React.Component {
 
   coordinateParseFloat(value) {
     if (value !== undefined) {
-      return parseFloat(value, 10)
+      return parseFloat(value, 10);
     }
     return 0;
   }
@@ -29,8 +29,12 @@ export default class OSMap extends React.Component {
           <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Map
               center={[
-                this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
-                this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
+                this.coordinateParseFloat(
+                  this.props.placeInfo[0].cityCoordinatesX,
+                ),
+                this.coordinateParseFloat(
+                  this.props.placeInfo[0].cityCoordinatesY,
+                ),
               ]}
               zoom={15}
             >
@@ -42,27 +46,35 @@ export default class OSMap extends React.Component {
               <Marker
                 key={this.props.placeInfo.cityId}
                 position={[
-                  this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
-                  this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
+                  this.coordinateParseFloat(
+                    this.props.placeInfo[0].cityCoordinatesX,
+                  ),
+                  this.coordinateParseFloat(
+                    this.props.placeInfo[0].cityCoordinatesY,
+                  ),
                 ]}
                 onClick={() => {
-                  this.setPlacePoint(this.props.placeInfo);
+                  this.setPlacePoint(this.props.placeInfo[0]);
                 }}
               />
 
               {this.state.placePoint && (
                 <Popup
                   position={[
-                    this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
-                    this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
+                    this.coordinateParseFloat(
+                      this.props.placeInfo[0].cityCoordinatesX,
+                    ),
+                    this.coordinateParseFloat(
+                      this.props.placeInfo[0].cityCoordinatesY,
+                    ),
                   ]}
                   onClose={() => {
                     this.setPlacePoint(null);
                   }}
                 >
                   <div>
-                    <h2>{this.props.placeInfo.culturalPlace}</h2>
-                    <p>{this.props.placeInfo.cityName}</p>
+                    <h2>{this.props.placeInfo[0].culturalPlace}</h2>
+                    <p>{this.props.placeInfo[0].cityName}</p>
                   </div>
                 </Popup>
               )}

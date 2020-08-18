@@ -10,15 +10,13 @@ import './style.css';
 import PropTypes from 'prop-types';
 
 function PhotoSlider(props) {
-  console.log(props, '----->Slider Porps');
-
   return (
     <div className="containerSlider">
       <Carousel>
         <Carousel.Item className="itemPhoto">
           <img
             className="imageSlider"
-            src={props.placeData.cityPhoto1}
+            src={props.placeData[0].cityPhoto1}
             alt="First slide"
           />
           <Carousel.Caption />
@@ -26,7 +24,7 @@ function PhotoSlider(props) {
         <Carousel.Item className="itemPhoto">
           <img
             className="imageSlider"
-            src={props.placeData.cityPhoto2}
+            src={props.placeData[0].cityPhoto2}
             alt="Third slide"
           />
 
@@ -35,7 +33,7 @@ function PhotoSlider(props) {
         <Carousel.Item className="itemPhoto">
           <img
             className="imageSlider"
-            src={props.placeData.cityPhoto3}
+            src={props.placeData[0].cityPhoto3}
             alt="Third slide"
           />
 
@@ -47,7 +45,7 @@ function PhotoSlider(props) {
 }
 
 PhotoSlider.propTypes = {
-  placeData: PropTypes.object,
+  placeData: PropTypes.array,
 };
 
 export default memo(PhotoSlider);

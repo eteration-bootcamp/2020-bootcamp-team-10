@@ -1,3 +1,5 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .loginContainer {
     margin-top: 7%;
     position: relative;
@@ -51,4 +53,27 @@
 }
 .password {
     color: white;
+}
+
+
+
+.isa_info, .isa_success, .isa_warning, .isa_error {
+    margin: 1% 19%;
+    padding:1.5%;
+    border-radius: 15px;
+    border-color: red;
+    border-style: solid;
+    box-shadow: 3px 3px 1px #D8000C;
+    text-align: center;
+    opacity: 0.7;
+    }
+
+.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+    margin:10px 22px;
+    font-size:1em;
+    vertical-align:middle;
 }

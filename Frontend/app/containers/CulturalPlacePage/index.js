@@ -35,8 +35,6 @@ export function CulturalPlacePage({
   useEffect(() => {
     dispatch(getDataWithId(culturalPlaceId));
   }, []);
-
-  // console.log(culturalPlacePage.aCulturalPlace, 'Cul place')
   return (
     <div className="culturalPlacePage-background">
       <div>

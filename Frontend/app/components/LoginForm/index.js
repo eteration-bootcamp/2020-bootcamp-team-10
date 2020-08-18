@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import history from '../../containers/App/history';
-
 import './style.css';
 import { setAuthentication } from '../../containers/LoginPage/actions';
 
@@ -21,6 +20,7 @@ export default class LoginForm extends React.Component {
     this.signIn = this.signIn.bind(this);
     this.state = {
       userInfo: {},
+      loginFlag: 0,
     };
     this.checkLogin = this.checkLogin.bind(this);
     this.redirectToHome = this.redirectToHome.bind(this);
@@ -56,10 +56,15 @@ export default class LoginForm extends React.Component {
       })
         .then(response => response.json())
         .then(data => this.props.setAuth(data))
-        .then(data => this.redirectToHome());
+        .then(() => this.redirectToHome());
+
+      if (this.props.userInfo.isLoggedIn == false) {
+        this.setState({ loginFlag: 1 });
+      }
     } catch (error) {
       console.log(error);
     }
+
   }
 
   render() {
@@ -103,6 +108,11 @@ export default class LoginForm extends React.Component {
                 />
               </Col>
             </FormGroup>
+            {this.state.loginFlag === 1 && (
+              <p className="isa_error">
+                Your login username or password wrong, please try again.
+              </p>
+            )}
             <FormGroup>
               <Button className="loginButton">LOGIN</Button>
             </FormGroup>
@@ -117,3 +127,8 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+
+LoginForm.propTypes = {
+  userInfo: PropTypes.object,
+  setAuth: PropTypes.func,
+};

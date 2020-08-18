@@ -14,7 +14,7 @@ function DescriptionCard(props) {
   return (
     <div>
       <Card className="cardClass">
-        <PhotoSlider placeData={props.aPlaceData.aCulturalPlace} />
+        <PhotoSlider placeData={[props.aPlaceData.aCulturalPlace]} />
         <div className="info-container">
           <CardBody>
             <CardTitle className="place-name">
@@ -31,7 +31,7 @@ function DescriptionCard(props) {
           </CardBody>
         </div>
         <div>
-          <OSMap placeInfo={props.aPlaceData.aCulturalPlace} />
+          <OSMap placeInfo={[props.aPlaceData.aCulturalPlace]} />
         </div>
       </Card>
     </div>

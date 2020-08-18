@@ -9,7 +9,6 @@ function* getDataWithId(id) {
     method: 'GET',
   };
 
-  console.log(id.id.id, 'id in saga');
   try {
     const response = yield call(
       request,

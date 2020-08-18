@@ -16,8 +16,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log(this.props.isLogin, 'ısLogin Debug');
-
     let loginData = false;
     if (this.props.isLogin.isLoggedIn === true) {
       loginData = true;
@@ -73,5 +71,5 @@ class NavBar extends React.Component {
 export default NavBar;
 
 Navbar.propTypes = {
-  isLogin: PropTypes.bool,
+  isLogin: PropTypes.object,
 };

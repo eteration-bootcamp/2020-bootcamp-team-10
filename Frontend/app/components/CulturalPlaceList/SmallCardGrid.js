@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './style.css';
+import PropTypes from 'prop-types';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -37,8 +38,8 @@ export default function SmallCardGrid(props) {
     <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
-          {props.placeData.map(value => (
-            <Grid key={value} item>
+          {props.placeData.map((value,index) => (
+            <Grid key={index} item>
               <div>
                 <div className="card-container">
                   <Card className="smallInfoCard">
@@ -81,3 +82,7 @@ export default function SmallCardGrid(props) {
     </Grid>
   );
 }
+
+SmallCardGrid.propTypes = {
+  placeData: PropTypes.array,
+};
