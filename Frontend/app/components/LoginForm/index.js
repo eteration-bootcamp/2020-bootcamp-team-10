@@ -9,7 +9,7 @@ import {
   Input,
   Container,
 } from 'reactstrap';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import history from '../../containers/App/history';
 
 import './style.css';
@@ -42,12 +42,16 @@ export default class LoginForm extends React.Component {
     event.preventDefault();
     const data = new FormData(event.target);
     const reqBody = JSON.stringify({
-      email: data.get('username'),
+      username: data.get('username'),
       password: data.get('password'),
     });
     try {
       fetch('http://localhost:7007/application/login', {
         method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain',
+          'Content-Type': 'application/json;charset=UTF-8',
+        },
         body: reqBody,
       })
         .then(response => response.json())
