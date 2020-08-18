@@ -9,7 +9,7 @@ import {
   Input,
   Container,
 } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import history from '../../containers/App/history';
 
 import './style.css';
@@ -53,18 +53,12 @@ export default class LoginForm extends React.Component {
         .then(response => response.json())
         .then(data => this.props.setAuth(data))
         .then(data => this.redirectToHome());
-      console.log(history, 'history----');
     } catch (error) {
       console.log(error);
     }
-    console.log(this.props.userInfo.isLoggedIn);
   }
 
   render() {
-    // console.log('----> is logged in', this.props.userInfo.isLoggedIn);
-    // if (this.props.userInfo.isLoggedIn == true) {
-    //   return <Redirect to="/" />;
-    // }
     return (
       <div className="login">
         <Container className="loginContainer">
@@ -119,7 +113,3 @@ export default class LoginForm extends React.Component {
     );
   }
 }
-
-// LoginForm.propTypes = {
-//   setAuth: PropTypes.object,
-// };

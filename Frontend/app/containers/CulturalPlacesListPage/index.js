@@ -27,22 +27,24 @@ export function CulturalPlacesListPage({ homePage, dispatch }) {
   useInjectSaga({ key: 'culturalPlacesListPage', saga });
 
   return (
+    <body>
     <div className="list-background">
-      <div>
-      <Helmet>
-        <title>CulturalPlacesListPage</title>
-        <meta
-          name="description"
-          content="Description of CulturalPlacesListPage"
+      <div className="place-list-container">
+        <Helmet>
+          <title>Cultural Places List</title>
+          <meta
+            name="description"
+            content="Description of CulturalPlacesListPage"
+          />
+        </Helmet>
+        <Navbar />
+        <CulturalPlaceList
+          data={homePage}
+          setFilterData={data => dispatch(getCulturalPlaceDataSuccess(data))}
         />
-      </Helmet>
-      <Navbar />
-      <CulturalPlaceList
-        data={homePage}
-        setFilterData={data => dispatch(getCulturalPlaceDataSuccess(data))}
-      />
       </div>
     </div>
+    </body>
   );
 }
 

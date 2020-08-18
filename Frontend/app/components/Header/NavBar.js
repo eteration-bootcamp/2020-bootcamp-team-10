@@ -5,15 +5,11 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
-  Button,
-  ButtonToggle,
-  CardLink,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './style.css';
-import iconSearch from '../../images/tripify-icon.png';
-// eslint-disable-next-line react/prefer-stateless-function
+
 class NavBar extends React.Component {
   onClickLogOut() {
     this.props.setAuth(false);
@@ -30,9 +26,6 @@ class NavBar extends React.Component {
     return (
       <div>
         <Navbar expand="md" className="navbar">
-          {/* <NavbarBrand>
-            <img className="icon" src={iconSearch} alt="icon" />
-          </NavbarBrand> */}
           <Link className="header" to="/">
             Tripify
           </Link>

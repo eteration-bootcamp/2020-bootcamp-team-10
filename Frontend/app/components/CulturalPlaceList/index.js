@@ -5,14 +5,12 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, CardDeck } from 'reactstrap';
 import './style.css';
 import SmallCardGrid from './SmallCardGrid';
 // import styled from 'styl./SmallCardGrid
 // eslint-disable-next-line react/prefer-stateless-function
 class CulturalPlaceList extends React.Component {
   render() {
-    console.log(this.props.data.filteredPlaces, 'data flow');
     let result;
     if (this.props.noFoundMessage) {
       result = <div>{this.props.noFoundMessage}</div>;

@@ -29,8 +29,8 @@ export default class OSMap extends React.Component {
           <Col sm="12" md={{ size: 6, offset: 3 }}>
             <Map
               center={[
-                this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
                 this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
+                this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
               ]}
               zoom={15}
             >
@@ -42,8 +42,8 @@ export default class OSMap extends React.Component {
               <Marker
                 key={this.props.placeInfo.cityId}
                 position={[
-                  this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
                   this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
+                  this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
                 ]}
                 onClick={() => {
                   this.setPlacePoint(this.props.placeInfo);
@@ -53,8 +53,8 @@ export default class OSMap extends React.Component {
               {this.state.placePoint && (
                 <Popup
                   position={[
-                    this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
                     this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesX),
+                    this.coordinateParseFloat(this.props.placeInfo.cityCoordinatesY),
                   ]}
                   onClose={() => {
                     this.setPlacePoint(null);

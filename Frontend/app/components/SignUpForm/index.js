@@ -23,20 +23,18 @@ class SignUpForm extends Component {
   signUp(event) {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log(typeof data.get('password'));
     const reqBody = JSON.stringify({
       firstName: data.get('name'),
       lastName: data.get('surname'),
       username: data.get('username'),
       password: data.get('password'),
     });
-    console.log(reqBody);
     try {
       fetch('http://localhost:7007/application/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-      },
+        },
         body: reqBody,
       });
     } catch (error) {
@@ -131,8 +129,8 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup>
-            <Link to="/login" className="signUpLink">
-              <Button className="signUpButton">SIGN UP</Button>
+              <Link to="/login" className="signUpLink">
+                <Button className="signUpButton">SIGN UP</Button>
               </Link>
             </FormGroup>
             <FormGroup>

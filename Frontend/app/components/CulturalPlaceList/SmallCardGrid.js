@@ -60,10 +60,12 @@ export default function SmallCardGrid(props) {
                       </CardSubtitle>
                       <CardText className="smallInfoCardDescription">
                         {value.cityDescription.substring(0, 260)}...
-                        {console.log(value.cityDescription)}
                       </CardText>
                       <ButtonToggle className="cardButton">
-                        <Link to={`/cultural-place/${value.cityId}`}>
+                        <Link
+                          className="link"
+                          to={`/cultural-place/${value.cityId}`}
+                        >
                           <span className="button-text">Learn more..</span>
                         </Link>
                       </ButtonToggle>
