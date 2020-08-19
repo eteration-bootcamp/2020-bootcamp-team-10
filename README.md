@@ -6,8 +6,8 @@
 | Role               | Name      |
 |--------------------|-----------|
 | Backend Developer, DB Architecture and QA(Test Developer)  | A. Yavuz ORUÇ  |
-| Frontend Developer | Derya  |
-| Frontend Developer | Ahmet  |
+| Frontend Developer | Derya Taşdöğen |
+| Frontend Developer | Ahmet Genç  |
 
 | xxxxxxxx Developer | İsmail   |
 | xxxxxxxx Developer | AhmetCan  |
@@ -78,7 +78,250 @@
       
       
       **If you want to ask question, you can write on discord.
-      
+
+      # Frontend
+
+ This project is built on Boilerplate Template.
+      Boilerplate: https://github.com/react-boilerplate/react-boilerplate
+
+### Steps
+    1-npm install
+    2-npm run start/npm start
+
+
+### Components
+
+You can find the used components listed below:
+
+| Plugin | README |
+| ------ | ------ |
+| 1 | LoginForm Component |
+| 2 | SignUp Component |
+| 3 | Header Component |
+| 4 | CulturalPlaceList Component |
+| 5 | DescriptionCard Component |
+| 6 | Map Component |
+| 7 | PhotoSlider Component |
+| 8 | Search Component |
+
+
+
+
+
+#### 1-LoginForm Component
+
+This component is used in LoginPage Container for user actors to log in to Tripify. It fetches the POST method in signIn() function.
+
+```ssh
+signIn(event) {
+   event.preventDefault();
+   const data = new FormData(event.target);
+   const reqBody = JSON.stringify({
+     username: data.get('username'),
+     password: data.get('password'),
+   });
+   try {
+     fetch('http://localhost:7007/application/login', {
+       method: 'POST',
+       headers: {
+         Accept: 'application/json, text/plain',
+         'Content-Type': 'application/json;charset=UTF-8',
+       },
+       body: reqBody,
+     })
+       .then(response => response.json())
+       .then(data => this.props.setAuth(data))
+       .then(() => this.redirectToHome());
+ 
+     if (this.props.userInfo.isLoggedIn == false) {
+       this.setState({ loginFlag: 1 });
+     }
+   } catch (error) {
+     console.log(error);
+   }
+```
+LoginForm Props:
+
+```ssh
+LoginForm.propTypes = {
+  userInfo: PropTypes.object,
+  setAuth: PropTypes.func,
+};
+```
+-userInfo and setAuth props are used for setting a state to transfer data for Redux.
+
+Screenshot:
+<img src="./images/loginformcomponent.PNG" alt="loginformcomponent">
+
+#### 2-SignUpForm Component
+This component is used in SignUpPage Container for user actors to Sign Up to Tripify. It fetches the POST method in signUp() function.
+
+```ssh
+signUp(event) {
+   event.preventDefault();
+   const data = new FormData(event.target);
+   const reqBody = JSON.stringify({
+     firstName: data.get('name'),
+     lastName: data.get('surname'),
+     username: data.get('username'),
+     password: data.get('password'),
+   });
+   try {
+     fetch('http://localhost:7007/application/register/', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: reqBody,
+     });
+   } catch (error) {
+     console.log(error);
+   }
+ }
+```
+SignUpForm Props:
+
+-userInfo: PropTypes.object:  props are used for setting a state to transfer data for Redux.
+-signUp = this.signUp.bind(this): to make click event clickable just once
+
+Screenshot:
+<img src="./images/signupformcomponent.PNG" alt="signupformcomponent">
+
+#### 3-Header Component
+This component is used on every page as Navigation Bar(Navbar.js) in Tripify. NavBar changes after successful login. 
+
+Header Props:
+
+```ssh
+Navbar.propTypes = {
+  isLogin: PropTypes.object,
+};
+```
+-isLogin prop is used for to keep the state for NavBar if there is a successful login event.
+
+Screenshot:
+<img src="./images/headercomponent1.PNG" alt="headercomponent1">
+<img src="./images/headercomponent2.PNG" alt="headercomponent2">
+
+
+
+#### 4-CulturalPlaceList Component
+
+This component is used to list searched places after the search event. CulturalPlaceList Component gets FilteredPlaces array data from Search Component which was stored in Redux and sends this data information to SmallCardGrid.js as a prop to list (if there is anything to worth to be listed). If the user searches without writing anything on the field, this component will list every cultural place in its database.
+
+CulturalPlaceList Props:
+
+```ssh
+CulturalPlaceList.propTypes = {
+  data: PropTypes.object,
+  setFilterData: PropTypes.func,
+  noFoundMessage: PropTypes.string,
+  undefinedMessage: PropTypes.string,
+};
+```
+-data: This prop was used as placeData to send data to SmallCardGrid.js from homePage selector
+
+Screenshot:
+<img src="./images/culturalplacelistcomponent.PNG" alt="culturalplacelistcomponent">
+
+
+### 5-DiscriptionCard Component
+This component is used to get all detailed information about a cultural place. This component can be reached directly with URL address or after inside CulturalPlaceList Component’s any ‘Learn More…’  button. DescriptionCard Component contains Map and PhotoSlider Components.
+DescriptionCard Props:
+```
+DescriptionCard.propTypes = {
+    aPlaceData: PropTypes.object,
+};
+```
+aPlaceData: This prop gets data from redux/saga and carry the data to other components and inside itself.
+
+Screenshot:
+<img src="./images/descriptioncardcomponent.PNG" alt="descriptioncardcomponent">
+
+### 6-Map Component
+
+It is used to show the location of places to users. It takes aPlaceData state from DescriptionCard Component. It uses cityCoordinateX, cityCoordinatesY, cityName and culturalPlace features of data. In this way it shows place location in a map. In addition this component uses OpenStreetMap API to visualize data.
+
+```sh
+<Container>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <Map
+              center={[
+                this.coordinateParseFloat(
+                  this.props.placeInfo[0].cityCoordinatesX,
+                ),
+                this.coordinateParseFloat(
+                  this.props.placeInfo[0].cityCoordinatesY,
+                ),
+              ]}
+              zoom={15}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              />
+ 
+              <Marker
+                key={this.props.placeInfo.cityId}
+                position={[
+                  this.coordinateParseFloat(
+                    this.props.placeInfo[0].cityCoordinatesX,
+                  ),
+                  this.coordinateParseFloat(
+                    this.props.placeInfo[0].cityCoordinatesY,
+                  ),
+                ]}
+                onClick={() => {
+                  this.setPlacePoint(this.props.placeInfo[0]);
+                }}
+              />
+ 
+              {this.state.placePoint && (
+                <Popup
+                  position={[
+                    this.coordinateParseFloat(
+                      this.props.placeInfo[0].cityCoordinatesX,
+                    ),
+                    this.coordinateParseFloat(
+                      this.props.placeInfo[0].cityCoordinatesY,
+                    ),
+                  ]}
+                  onClose={() => {
+                    this.setPlacePoint(null);
+                  }}
+                >
+                  <div>
+                    <h2>{this.props.placeInfo[0].culturalPlace}</h2>
+                    <p>{this.props.placeInfo[0].cityName}</p>
+                  </div>
+                </Popup>
+              )}
+            </Map>
+          </Col>
+        </Row>
+      </Container>
+```
+Map Props:
+```ssh
+CulturalPlaceList.propTypes = {
+    placeInfo: PropTypes.object.isRequired,
+};
+```
+Screenhot:
+<img src="./images/mapcomponent.PNG" alt="mapcomponent">
+
+### 7-PhotoSlider Component
+This component is to present a photo slide show animation inside DescriptionCard Component. It gets the data through DescriptionCard Component.
+
+PhotoSlider Props:
+```
+PhotoSlider.propTypes = {
+  	placeData: PropTypes.array,
+    };
+```
+Screenshot:
+<img src="./images/photoslidercomponent.PNG" alt="photoslidercomponent">   
     
 .
 .
