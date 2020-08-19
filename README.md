@@ -187,7 +187,7 @@ SignUpForm Props:
 
 Screenshot:
 
-<img src="./images/signupformcomponent.PNG" alt="signupformcomponent">
+<img src="./images/singupformcomponent.PNG" alt="signupformcomponent">
 
 #### 3-Header Component
 This component is used on every page as Navigation Bar(Navbar.js) in Tripify. NavBar changes after successful login. 
