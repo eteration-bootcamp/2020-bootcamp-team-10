@@ -9,9 +9,9 @@
 | Frontend Developer | Derya Taşdöğen |
 | Frontend Developer | Ahmet Genç  |
 | Frontend Developer | Ahmetcan Yazıcı  |
+| Frontend Developer | Ayşe Nur Yılmaz  |
 
 | xxxxxxxx Developer | İsmail   |
-| xxxxxxxx Developer | Ayşe  |
 
 ## Project
 
