@@ -8,9 +8,9 @@
 | Backend Developer, DB Architecture and QA(Test Developer)  | A. Yavuz ORUÇ  |
 | Frontend Developer | Derya Taşdöğen |
 | Frontend Developer | Ahmet Genç  |
+| Frontend Developer | Ahmetcan Yazıcı  |
 
 | xxxxxxxx Developer | İsmail   |
-| xxxxxxxx Developer | AhmetCan  |
 | xxxxxxxx Developer | Ayşe  |
 
 ## Project
@@ -331,8 +331,132 @@ PhotoSlider.propTypes = {
 ```
 Screenshot:
 
-<img src="./images/photoslidercomponent.PNG" alt="photoslidercomponent">   
+<img src="./images/photoslidercomponent.PNG" alt="photoslidercomponent" >   
     
-.
-.
-.
+
+#### 8-Search Component
+This is the component to search for cultural places to go. You can easily access the information about the place you want to go by typing the name of the place you want to go to the search bar.
+
+Search Probs:
+```
+Search.propTypes = {
+  data: PropTypes.object,
+  setFilterData: PropTypes.func,
+};
+```
+
+Screenshot:
+
+<img src="./images/SearchComponent.PNG" alt="SearchComponent"><br /><br />
+
+Search Bar has some filtering. The searched data is transferred with the help of probs.
+
+filterArray Function:
+```
+filterArray = () => {
+    this.setState(prevState => {
+      const searchString = prevState.query;
+      const serviceResponse = this.props.data.culturalPlaces;
+      let responseData;
+      if (searchString.length > 1) {
+        responseData = serviceResponse.filter(place =>
+          place.culturalPlace
+            .toLowerCase()
+            .includes(searchString.toLowerCase()),
+        );
+      } else {
+        responseData = this.props.data.culturalPlaces;
+      }
+      this.props.setFilterData(responseData);
+      return { responseData };
+    });
+  };
+```
+<br />
+
+This component is made using the reactstrap library elements Col, Row Form, FormGroup, Label, Input, Button, Toggle, Container.
+
+```
+import {
+  Col,
+  Row,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  ButtonToggle,
+  Container,
+} from 'reactstrap';
+```
+<br />
+
+In the container created, a background as shown in the figure was designed using special css structures. In addition, the coloring and placement has also been adjusted.
+
+```
+.searchContainer {
+  position: relative;
+  /* height: 300px; */
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 0%;
+  border-radius: 25px;
+  top: 20%;
+  width: 45%;
+  font-size: 18px;
+  background-color:rgba(0, 0, 0, 0.644) ;
+  box-shadow: 10px 10px 5px #aaaaaa54;
+}
+```
+<br />
+
+The button created using Reactstrap has been given the form in the figure with additional css.
+
+<img src="./images/ButtonGif.gif" alt="ButtonGif" width="400" height="300"> 
+
+Button Css:
+
+```
+.button {
+  border-radius: 20px;
+  background-color: chocolate;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 2px;
+  width: 61%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-left: 12%;
+}
+.button-text {
+  color:#FFFFFF;
+  font-size: 85%;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+```
