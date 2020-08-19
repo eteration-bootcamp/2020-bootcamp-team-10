@@ -15,7 +15,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import Header from '../../components/Header';
 import makeSelectLoginPage from './selectors';
-import { setAuthenticationSuccess } from './actions';
+import { setAuthenticationSuccess, setUserNameSuccess, getUserDataSuccess } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import './style.css';
@@ -36,6 +36,8 @@ export function LoginPage({ loginPage, dispatch }) {
       <LoginForm
         userInfo={loginPage}
         setAuth={data => dispatch(setAuthenticationSuccess(data))}
+        setUserName={data => dispatch(setUserNameSuccess(data))}
+        setUserProfile={data => dispatch(getUserDataSuccess(data))}
       />
     </div>
   );

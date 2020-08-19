@@ -17,13 +17,13 @@ import { setAuthentication } from '../../containers/LoginPage/actions';
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.signIn = this.signIn.bind(this);
     this.state = {
-      userInfo: {},
+      userInfo: {username:''},
       loginFlag: 0,
     };
     this.checkLogin = this.checkLogin.bind(this);
     this.redirectToHome = this.redirectToHome.bind(this);
+    this.signIn = this.signIn.bind(this);
   }
 
   checkLogin(userInfo) {
@@ -56,6 +56,8 @@ export default class LoginForm extends React.Component {
       })
         .then(response => response.json())
         .then(data => this.props.setAuth(data))
+        .then(() =>this.props.setUserName(data.get('username')))
+        .then(() => this.getUserInfo(data.get('username')))
         .then(() => this.redirectToHome());
 
       if (this.props.userInfo.isLoggedIn == false) {
@@ -64,7 +66,27 @@ export default class LoginForm extends React.Component {
     } catch (error) {
       console.log(error);
     }
+  }
 
+
+  getUserInfo(data) {
+    console.log(this.props, 'all props');
+    const reqBody = data;
+
+    try {
+      fetch('http://localhost:7007/application/register/search', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain',
+          'Content-Type': 'application/json;charset=UTF-8',
+        },
+        body: reqBody,
+      })
+        .then(response => response.json())
+        .then(data => this.props.setUserProfile(data));
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {

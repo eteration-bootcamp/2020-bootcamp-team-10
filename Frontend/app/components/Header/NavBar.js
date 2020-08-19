@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -49,6 +43,11 @@ class NavBar extends React.Component {
             ) : (
               <div>
                 <Nav className="logOutNav">
+                  <NavItem className="item">
+                    <Link className="link" to="/profile">
+                      Profile
+                    </Link>
+                  </NavItem>
                   <NavItem className="item">
                     <Link
                       className="link"

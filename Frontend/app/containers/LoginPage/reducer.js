@@ -8,10 +8,14 @@ import {
   DEFAULT_ACTION,
   SET_AUTHENTICATION_SUCCESS,
   GET_AUTHENTICATION_DATA,
+  SET_USERNAME_SUCCESS,
+  GET_USER_DATA_SUCCESS,
 } from './constants';
 
 export const initialState = {
   isLoggedIn: false,
+  userName: '',
+  userProfile: {},
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -22,10 +26,15 @@ const loginPageReducer = (state = initialState, action) =>
         break;
       case SET_AUTHENTICATION_SUCCESS:
         state.isLoggedIn = action.data;
-        console.log('SET_AUTHENTICATION_SUCCESS', state.isLoggedIn);
         break;
       case GET_AUTHENTICATION_DATA:
         state.isLogedIn = state.isLoggedIn;
+        break;
+      case SET_USERNAME_SUCCESS:
+        state.userName = action.data;
+        break;
+      case GET_USER_DATA_SUCCESS:
+        state.userProfile = action.data;
         break;
     }
   });

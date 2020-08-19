@@ -39,9 +39,8 @@ public class UserController {
 		return userService.getAllUserList();
 	}
 
-	@RequestMapping(value = "/register/search", method = RequestMethod.GET)
-	public List<User> searchUser(@PathVariable String userName) {
-
+	@RequestMapping(value = "/register/search", method = RequestMethod.POST)
+	public List<User> searchUser(@RequestBody String userName) {
 		return userService.findByUserName(userName);
 	}
 

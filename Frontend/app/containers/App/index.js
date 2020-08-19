@@ -19,7 +19,7 @@ import LoginPage from '../LoginPage';
 import SignUpPage from '../SignUpPage';
 import CulturalPlacePage from '../CulturalPlacePage';
 import CulturalPlacesListPage from '../CulturalPlacesListPage';
-
+import ProfilePage from '../ProfilePage';
 import history from './history';
 import createStore from "../../configureStore";
 
@@ -33,6 +33,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/sign-up" component={SignUpPage} />
+        <Route exact path="/profile" component={ProfilePage} />
         <Route exact path="/cultural-place/:id"  strict
         sensitive
         render={({ match }) => {
