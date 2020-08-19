@@ -151,6 +151,7 @@ LoginForm.propTypes = {
 -userInfo and setAuth props are used for setting a state to transfer data for Redux.
 
 Screenshot:
+
 <img src="./images/loginformcomponent.PNG" alt="loginformcomponent">
 
 #### 2-SignUpForm Component
@@ -185,6 +186,7 @@ SignUpForm Props:
 -signUp = this.signUp.bind(this): to make click event clickable just once
 
 Screenshot:
+
 <img src="./images/signupformcomponent.PNG" alt="signupformcomponent">
 
 #### 3-Header Component
@@ -200,7 +202,9 @@ Navbar.propTypes = {
 -isLogin prop is used for to keep the state for NavBar if there is a successful login event.
 
 Screenshot:
+
 <img src="./images/headercomponent1.PNG" alt="headercomponent1">
+
 <img src="./images/headercomponent2.PNG" alt="headercomponent2">
 
 
@@ -222,10 +226,11 @@ CulturalPlaceList.propTypes = {
 -data: This prop was used as placeData to send data to SmallCardGrid.js from homePage selector
 
 Screenshot:
+
 <img src="./images/culturalplacelistcomponent.PNG" alt="culturalplacelistcomponent">
 
 
-### 5-DiscriptionCard Component
+#### 5-DiscriptionCard Component
 This component is used to get all detailed information about a cultural place. This component can be reached directly with URL address or after inside CulturalPlaceList Component’s any ‘Learn More…’  button. DescriptionCard Component contains Map and PhotoSlider Components.
 DescriptionCard Props:
 ```
@@ -233,12 +238,13 @@ DescriptionCard.propTypes = {
     aPlaceData: PropTypes.object,
 };
 ```
-aPlaceData: This prop gets data from redux/saga and carry the data to other components and inside itself.
+-aPlaceData: This prop gets data from redux/saga and carry the data to other components and inside itself.
 
 Screenshot:
+
 <img src="./images/descriptioncardcomponent.PNG" alt="descriptioncardcomponent">
 
-### 6-Map Component
+#### 6-Map Component
 
 It is used to show the location of places to users. It takes aPlaceData state from DescriptionCard Component. It uses cityCoordinateX, cityCoordinatesY, cityName and culturalPlace features of data. In this way it shows place location in a map. In addition this component uses OpenStreetMap API to visualize data.
 
@@ -308,10 +314,11 @@ CulturalPlaceList.propTypes = {
     placeInfo: PropTypes.object.isRequired,
 };
 ```
-Screenhot:
+Screenshot:
+
 <img src="./images/mapcomponent.PNG" alt="mapcomponent">
 
-### 7-PhotoSlider Component
+#### 7-PhotoSlider Component
 This component is to present a photo slide show animation inside DescriptionCard Component. It gets the data through DescriptionCard Component.
 
 PhotoSlider Props:
@@ -321,6 +328,7 @@ PhotoSlider.propTypes = {
     };
 ```
 Screenshot:
+
 <img src="./images/photoslidercomponent.PNG" alt="photoslidercomponent">   
     
 .
