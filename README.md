@@ -246,7 +246,9 @@ Screenshot:
 
 #### 6-Map Component
 
-It is used to show the location of places to users. It takes aPlaceData state from DescriptionCard Component. It uses cityCoordinateX, cityCoordinatesY, cityName and culturalPlace features of data. In this way it shows place location in a map. In addition this component uses OpenStreetMap API to visualize data.
+It is used to show the location of places to users. It takes aPlaceData state from DescriptionCard Component. It uses cityCoordinateX, cityCoordinatesY, cityName and culturalPlace features of data. In this way it shows place location in a map. In addition this component uses OpenStreetMap API and Leaflet to visualize data. 
+
+🍃 Leaflet is an open-source JavaScript library for mobile-friendly interactive maps. We create a 'map' div, add tiles of our choice, and then add a marker for places.
 
 ```sh
 <Container>
