@@ -1,0 +1,9 @@
+.sign-up-background {
+    position: fixed;
+    background-image: url("../../images/sign-up.jpg");
+    width: 100%;
+    height:100%;
+    background-repeat: no-repeat;
+    background-size: cover;  
+        
+}

@@ -1,0 +1,14 @@
+.leaflet-container {
+    width: 600px;
+    height: 400px;
+    margin: 10px;
+    /* rgba(0, 0, 0, 0.644) */
+    border-radius: 25px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0,0.8);
+    border-width: 10px;
+  }
+  .margin{
+    margin: 5px;
+  }
+  

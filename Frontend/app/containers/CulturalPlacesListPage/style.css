@@ -1,0 +1,13 @@
+.list-background{
+    position: relative;
+    background-image: url("../../images/back13.jpg");
+    width: auto;
+    height: 3300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.place-list-container{
+    width: 100%;
+    height: 100%;
+}

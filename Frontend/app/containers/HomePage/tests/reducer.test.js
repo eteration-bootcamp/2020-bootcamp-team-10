@@ -1,28 +1,32 @@
-import produce from 'immer';
-
-import homeReducer from '../reducer';
-import { changeUsername } from '../actions';
+// import produce from 'immer';
+import homePageReducer from '../reducer';
+// import { someAction } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
-describe('homeReducer', () => {
+describe('homePageReducer', () => {
   let state;
   beforeEach(() => {
     state = {
-      username: '',
+      // default state params here
     };
   });
 
-  it('should return the initial state', () => {
+  it('returns the initial state', () => {
     const expectedResult = state;
-    expect(homeReducer(undefined, {})).toEqual(expectedResult);
+    expect(homePageReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  it('should handle the changeUsername action correctly', () => {
-    const fixture = 'mxstbr';
-    const expectedResult = produce(state, draft => {
-      draft.username = fixture;
-    });
-
-    expect(homeReducer(state, changeUsername(fixture))).toEqual(expectedResult);
-  });
+  /**
+   * Example state change comparison
+   *
+   * it('should handle the someAction action correctly', () => {
+   *   const expectedResult = produce(state, draft => {
+   *     draft.loading = true;
+   *     draft.error = false;
+   *     draft.userData.nested = false;
+   *   });
+   *
+   *   expect(appReducer(state, someAction())).toEqual(expectedResult);
+   * });
+   */
 });

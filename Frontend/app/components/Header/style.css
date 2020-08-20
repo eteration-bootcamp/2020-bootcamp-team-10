@@ -1,0 +1,64 @@
+.navbar{
+    padding-bottom: 1%;
+    background-color:rgba(0, 0, 0, 0.644) ;
+    box-shadow: 10px 10px 5px #aaaaaa15;
+    
+}
+.item {
+    padding-left: 15px;
+}
+
+.item-card {
+  flex: 1;
+}
+
+.link{
+    color: chocolate;
+    font-size: 20px;
+}
+.link:hover{
+  color: chocolate;
+  text-decoration: none;
+  color: rgb(255,255,255,0.7);
+}
+.header {
+    color: chocolate;
+    font-style: italic;
+    font-size: 35px;
+    font-weight: bold;
+    
+    font-family: 'Times New Roman', Times, serif;
+}
+.header:hover{
+  color: chocolate;
+  text-decoration: none;
+}
+
+.tripify {
+    color: chocolate;
+    font-style: italic;
+    font-size: 35px;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-brand>img {
+    padding: 7px 14px;
+
+  }
+  .icon {
+      width:10%;
+      height:10%;
+  }
+
+  .nav-button{
+    color: chocolate;
+  }
+
+  .nav-button-text{
+    /* color: chocolate; */
+    text-decoration: none !important;
+    font-size: 25px;
+  }

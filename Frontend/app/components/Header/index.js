@@ -1,29 +1,35 @@
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
+/**
+ *
+ * Header
+ *
+ */
 
-import A from './A';
-import Img from './Img';
+import React, { memo } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
+import PropTypes from 'prop-types';
 import NavBar from './NavBar';
-import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
-import messages from './messages';
+import makeSelectLoginPage from '../../containers/LoginPage/selectors';
 
-function Header() {
+function Header({ props, loginPage }) {
   return (
     <div>
-      <A href="https://www.reactboilerplate.com/">
-        <Img src={Banner} alt="react-boilerplate - Logo" />
-      </A>
-      <NavBar>
-        <HeaderLink to="/">
-          <FormattedMessage {...messages.home} />
-        </HeaderLink>
-        <HeaderLink to="/features">
-          <FormattedMessage {...messages.features} />
-        </HeaderLink>
-      </NavBar>
+      <NavBar isLogin={loginPage} />
     </div>
   );
 }
 
-export default Header;
+const mapStateToProps = createStructuredSelector({
+  loginPage: makeSelectLoginPage(),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  null,
+);
+
+export default compose(
+  withConnect,
+  memo,
+)(Header);

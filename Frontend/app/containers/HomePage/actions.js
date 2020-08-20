@@ -1,32 +1,61 @@
 /*
- * Home Actions
  *
- * Actions change things in your application
- * Since this boilerplate uses a uni-directional data flow, specifically redux,
- * we have these actions which are the only way your application interacts with
- * your application state. This guarantees that your state is up to date and nobody
- * messes it up weirdly somewhere.
+ * HomePage actions
  *
- * To add a new Action:
- * 1) Import your constant
- * 2) Add a function like this:
- *    export function yourAction(var) {
- *        return { type: YOUR_ACTION_CONSTANT, var: var }
- *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import {
+  DEFAULT_ACTION,
+  GET_ALL_DATA,
+  GET_ALL_DATA_SUCCESS,
+  GET_ALL_DATA_FAILURE,
+  SET_FILTERED_SEARCH_DATA,
+  SET_FILTERED_SEARCH_DATA_SUCCESS,
+  SET_FILTERED_SEARCH_DATA_FAILURE,
+} from './constants';
 
-/**
- * Changes the input field of the form
- *
- * @param  {string} username The new text of the input field
- *
- * @return {object} An action object with a type of CHANGE_USERNAME
- */
-export function changeUsername(username) {
+export function defaultAction() {
   return {
-    type: CHANGE_USERNAME,
-    username,
+    type: DEFAULT_ACTION,
+  };
+}
+
+export function getAllData() {
+  return {
+    type: GET_ALL_DATA,
+  };
+}
+export function getAllDataSuccess(data) {
+  console.log('getAllDataSuccess', data);
+  return {
+    type: GET_ALL_DATA_SUCCESS,
+    data,
+  };
+}
+export function getAllDataFailure(error) {
+  return {
+    type: GET_ALL_DATA_FAILURE,
+    error,
+  };
+}
+
+export function setFilteredSearchData() {
+  console.log('filteredSearch Action');
+  return {
+    type: SET_FILTERED_SEARCH_DATA,
+  };
+}
+
+export function setFilteredSearchDataSuccess(filteredData) {
+  console.log('setFilteredSearchDataSuccess', filteredData);
+  return {
+    type: SET_FILTERED_SEARCH_DATA_SUCCESS,
+    filteredData,
+  };
+}
+export function setFilteredSearchDataFailure(error) {
+  return {
+    type: SET_FILTERED_SEARCH_DATA_FAILURE,
+    error,
   };
 }

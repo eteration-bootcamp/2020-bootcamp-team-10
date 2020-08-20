@@ -1,0 +1,42 @@
+.cardClass {
+    background-color:rgba(0, 0, 0, 0) ;
+}
+
+.place-name{
+    padding-top: 2%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.place-city{
+    padding-top: 0.1%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.place-description{
+    padding-top: 0.2%;
+    padding-bottom: 3%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.info-container{
+    margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: rgb(255,255,255,0.7);
+    background-color: rgba(0, 0, 0, 0.644) ;
+    border-radius: 25px;
+
+    
+}
+

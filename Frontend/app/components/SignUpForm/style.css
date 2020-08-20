@@ -1,0 +1,61 @@
+.signUpContainer {
+    margin-top: 5%;
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left:3%;
+    border-radius: 25px;
+    top: 15%;
+    width: 50%;
+    font-size: 18px;
+    background-color:rgba(0, 0, 0, 0.571) ;
+    box-shadow: 10px 10px 5px #aaaaaa54;
+    
+}
+.signUpButton {
+    background-color: chocolate;
+    color: #D5F5E3;
+}
+
+
+.emailInputBox {
+    box-shadow: 10px 10px 5px #aaaaaa35;
+    border-radius: 10px;
+}
+
+
+.passwordInputBox {
+    box-shadow: 10px 10px 5px #aaaaaa35;
+    border-radius: 10px; 
+
+}
+.signUpLink {
+    color: chocolate;
+}
+
+.headerLabel {
+    padding-bottom: 5%;
+    font-size: 25px;
+}
+.tripify {
+    padding-left: 7px;
+    color: chocolate;
+    font-style: italic;
+    font-size: 35px;
+
+}
+.name {
+    color: white;
+}
+.surname {
+    color: white;
+}
+.username {
+    color: white;
+}
+.email {
+    color: white;
+}
+.password {
+    color: white;
+}

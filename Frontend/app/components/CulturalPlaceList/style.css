@@ -1,0 +1,95 @@
+.card-container{
+    padding-top:6%;
+    width:500px;
+    height: 620px;
+    padding-left:3%;
+    padding-right:3%;
+}
+
+.smallInfoCard{
+    width:100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color:rgba(0, 0, 0, 0.644) ;
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+}
+
+.card-photo-container{
+    padding-left:3%;
+    padding-right:3%;
+    padding-top:3%;
+    width: 450px;
+    height: 300px;
+    margin-left: 2%;
+}
+
+.cardimage{
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.smallInfoCardDescription{
+    color: rgb(255,255,255,0.7);
+}
+
+.smallInfoCardTitle{
+    color: chocolate;
+    font-size:22px;
+  
+}
+
+.smallInfoCardSubTitle{
+    color: rgb(255,255,255,0.7);
+}
+
+
+.cardButton {
+    border-radius: 20px;
+    background-color: chocolate;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 2px;
+    width: 40%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-left: 1%;
+  }
+  .cardButton-text {
+    color:#FFFFFF;
+    font-size: 85%;
+    text-decoration: none;
+  }
+
+  .link:hover {
+    text-decoration: none;
+  }
+  
+  .cardButton {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  /* .cardButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  } */
+  
+  
+  .cardButton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

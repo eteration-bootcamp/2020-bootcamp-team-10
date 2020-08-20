@@ -28,4 +28,8 @@ public interface UserRepository extends CrudRepository<User, Long>{
 	@Query(value = "FROM User b WHERE b.userId = :userId")
 	public User findWithUserId(@Param("userId") Long userId);
 	
+	@Query(value = "SELECT u2 FROM User u2 WHERE u2.username =:username AND u2.password =:password")
+	public List<User> checkUser(@Param("username") String username,@Param("password") String password);
+	
 }
+

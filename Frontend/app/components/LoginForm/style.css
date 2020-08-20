@@ -1,0 +1,79 @@
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.loginContainer {
+    margin-top: 7%;
+    position: relative;
+    /* height: 300px; */
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left:3%;
+    border-radius: 25px;
+    top: 22%;
+    width: 50%;
+    font-size: 18px;
+    background-color:rgba(0, 0, 0, 0.571) ;
+    box-shadow: 10px 10px 5px #aaaaaa54;
+    
+}
+.loginButton {
+    background-color: chocolate;
+    color: #D5F5E3;
+}
+
+
+.emailInputBox {
+    box-shadow: 10px 10px 5px #aaaaaa35;
+    border-radius: 10px;
+}
+
+
+.passwordInputBox {
+    box-shadow: 10px 10px 5px #aaaaaa35;
+    border-radius: 10px; 
+
+}
+.loginLink {
+    color: chocolate;
+}
+
+.headerLabel {
+    padding-bottom: 5%;
+    font-size: 25px;
+    color: white;
+}
+.tripify {
+    color: chocolate;
+    font-style: italic;
+    font-size: 35px;
+    padding-left: 7px;
+
+}
+.email{
+    color: white;
+}
+.password {
+    color: white;
+}
+
+
+
+.isa_info, .isa_success, .isa_warning, .isa_error {
+    margin: 1% 19%;
+    padding:1.5%;
+    border-radius: 15px;
+    border-color: red;
+    border-style: solid;
+    box-shadow: 3px 3px 1px #D8000C;
+    text-align: center;
+    opacity: 0.7;
+    }
+
+.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+.isa_info i, .isa_success i, .isa_warning i, .isa_error i {
+    margin:10px 22px;
+    font-size:1em;
+    vertical-align:middle;
+}
