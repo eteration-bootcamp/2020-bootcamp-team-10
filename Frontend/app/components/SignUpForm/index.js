@@ -10,6 +10,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './style.css';
+import history from '../../containers/App/history';
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -19,6 +20,8 @@ class SignUpForm extends Component {
       userInfo: {},
     };
   }
+
+  
 
   signUp(event) {
     event.preventDefault();
@@ -36,7 +39,7 @@ class SignUpForm extends Component {
           'Content-Type': 'application/json',
         },
         body: reqBody,
-      });
+      }).then(history.push('/'));
     } catch (error) {
       console.log(error);
     }
@@ -129,9 +132,7 @@ class SignUpForm extends Component {
               </Col>
             </FormGroup>
             <FormGroup>
-              <Link to="/login" className="signUpLink">
-                <Button className="signUpButton">SIGN UP</Button>
-              </Link>
+              <Button className="signUpButton">SIGN UP</Button>
             </FormGroup>
             <FormGroup>
               <Link to="/login" className="signUpLink">

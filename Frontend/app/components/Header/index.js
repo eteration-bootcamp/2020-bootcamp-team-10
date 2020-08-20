@@ -13,7 +13,6 @@ import NavBar from './NavBar';
 import makeSelectLoginPage from '../../containers/LoginPage/selectors';
 
 function Header({ props, loginPage }) {
-  // console.log(props.authData, 'auth data');
   return (
     <div>
       <NavBar isLogin={loginPage} />

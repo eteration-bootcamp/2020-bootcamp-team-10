@@ -70,7 +70,6 @@ export default class LoginForm extends React.Component {
 
 
   getUserInfo(data) {
-    console.log(this.props, 'all props');
     const reqBody = data;
 
     try {

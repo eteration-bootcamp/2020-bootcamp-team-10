@@ -18,7 +18,6 @@ const culturalPlacePageReducer = (state = initialState, action) =>
         break;
       case GET_DATA_WITH_ID_SUCCESS:
         draft.aCulturalPlace = action.placeInfo;
-        console.log('action in reducer',action)
         break;
     }
   });

@@ -27,7 +27,6 @@ export function SignUpPage({ loginPage, dispatch }) {
   useInjectSaga({ key: 'signUpPage', saga });
   return (
     <div className="sign-up-background">
-    {console.log('loginPage in signup', loginPage)}
       <Helmet>
         <title>SignUpPage</title>
         <meta name="description" content="Description of SignUpPage" />
