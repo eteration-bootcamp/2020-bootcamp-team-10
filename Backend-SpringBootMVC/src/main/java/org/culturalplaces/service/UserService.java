@@ -21,7 +21,6 @@ public class UserService {
 	}
 	
 
-
 	public List<User> getAllUserList() {
 
 		return userRepository.getAllUserList();
@@ -51,10 +50,12 @@ public class UserService {
 	}
 
 	public boolean login(String username, String password) {
+
 		if(userRepository.checkUser(username, password) != null) {
 			return true;
 		}else {
 			System.out.println("Yanlış kullanıcı adı veya şifre");
+
 			return false;
 		}
 	}

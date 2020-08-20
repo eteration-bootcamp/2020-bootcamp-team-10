@@ -32,3 +32,4 @@ public interface UserRepository extends CrudRepository<User, Long>{
 	public List<User> checkUser(@Param("username") String username,@Param("password") String password);
 	
 }
+

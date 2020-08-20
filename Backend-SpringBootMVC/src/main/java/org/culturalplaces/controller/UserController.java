@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
+
 @RequestMapping("/application")
 public class UserController {
 	
@@ -41,6 +42,7 @@ public class UserController {
 
 	@RequestMapping(value = "/register/search", method = RequestMethod.POST)
 	public List<User> searchUser(@RequestBody String userName) {
+
 		return userService.findByUserName(userName);
 	}
 
