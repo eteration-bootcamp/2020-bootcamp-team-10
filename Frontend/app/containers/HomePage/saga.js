@@ -10,7 +10,7 @@ function* getAllData() {
   try {
     const response = yield call(
       request,
-      'http://localhost:7007/application/city/list',
+      'https://tripify-backend.azurewebsites.net/application/city/list',
       options,
     );
     yield put(getAllDataSuccess(response));

@@ -12,7 +12,7 @@ function* getDataWithId(id) {
   try {
     const response = yield call(
       request,
-      `http://localhost:7007/application/city/${id.id.id}`,
+      `https://tripify-backend.azurewebsites.net/application/city/${id.id.id}`,
       options,
     );
     yield put(getDataWithIdSuccess(response));

@@ -46,7 +46,7 @@ export default class LoginForm extends React.Component {
       password: data.get('password'),
     });
     try {
-      fetch('http://localhost:7007/application/login', {
+      fetch('https://tripify-backend.azurewebsites.net/application/login', {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain',
@@ -74,7 +74,7 @@ export default class LoginForm extends React.Component {
     const reqBody = data;
 
     try {
-      fetch('http://localhost:7007/application/register/search', {
+      fetch('https://tripify-backend.azurewebsites.net/application/register/search', {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain',

@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d2004363-39c0-4cff-a923-a9547bbb2ca6/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/tripify-backend",
+    "appService.deploySubpath": "Backend-SpringBootMVC"
+}
