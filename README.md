@@ -10,8 +10,7 @@
 | Frontend Developer | Ahmet Genç  |
 | Frontend Developer | Ahmetcan Yazıcı  |
 | Frontend Developer | Ayşe Nur Yılmaz  |
-
-| xxxxxxxx Developer | İsmail   |
+| Frontend Developer | İsmail Hakseven  |
 
 ## Project
 
